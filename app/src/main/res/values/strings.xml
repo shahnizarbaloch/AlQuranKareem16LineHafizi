@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">VSDemo</string>
+    <string name="demo">Screen Name</string>
+    <string name="menu_1">Change</string>
+
+
+    <string name="home_menu_quran">Quran</string>
+    <string name="home_menu_continue_reciting">Continue Reciting</string>
+    <string name="home_menu_bookmark">Bookmarks</string>
+    <string name="home_menu_share">Share</string>
+
+</resources>
