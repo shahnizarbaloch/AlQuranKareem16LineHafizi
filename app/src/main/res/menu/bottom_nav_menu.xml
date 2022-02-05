@@ -4,17 +4,17 @@
     <item
         android:id="@+id/menu1"
         android:icon="@drawable/ic_android_black_24dp"
-        android:title="@string/menu_1" />
+        android:title="@string/menu_1_surah" />
 
     <item
         android:id="@+id/menu2"
         android:icon="@drawable/ic_android_black_24dp"
-        android:title="@string/menu_1" />
+        android:title="@string/menu_2_juz" />
 
     <item
         android:id="@+id/menu3"
         android:icon="@drawable/ic_android_black_24dp"
-        android:title="@string/menu_1" />
+        android:title="@string/menu_3_sajda" />
 
     <item
         android:id="@+id/menu4"

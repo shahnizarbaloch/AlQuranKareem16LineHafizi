@@ -3,13 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_arrow_back_primary.xml" value="0.2115" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_menu.xml" value="0.2115" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_home_screen_top_bg.xml" value="0.2115" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_logo.xml" value="0.2115" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/activity_selection.xml" value="0.25" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/banner_add_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_aayat_list.xml" value="0.33" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_home_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_home_menu_full_width.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_new_demo.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_selection.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_surah.xml" value="0.25" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/selection_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/toolbar_custom.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2515" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_menu.xml" value="0.336" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/activity_main.xml" value="0.25" />

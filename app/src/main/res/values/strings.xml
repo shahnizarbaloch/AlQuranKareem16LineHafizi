@@ -13,5 +13,10 @@
     <string name="go_to">Goto</string>
     <string name="share_it_with_everyone">Share our app</string>
 
+    <string name="menu_1_surah">سُوْرَة</string>
+    <string name="menu_2_juz">جُزْءْ</string>
+    <string name="menu_3_sajda">سجدة</string>
+    <string name="menu_4_manzil">منزل</string>
+
 
 </resources>

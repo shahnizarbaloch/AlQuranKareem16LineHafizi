@@ -24,7 +24,7 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:gravity="center_vertical"
             android:text="@string/demo"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/_18sdp"
             android:textStyle="bold"/>
 

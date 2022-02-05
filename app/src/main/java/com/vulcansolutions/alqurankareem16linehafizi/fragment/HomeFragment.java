@@ -14,7 +14,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.HomeAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentHomeBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.models.HomeMenu;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.HomeRepo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickListener {
 
@@ -22,13 +26,12 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
     NavController navController;
     HomeRepo repo;
     HomeAdapter adapter;
+    private List<HomeMenu> list;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater,container,false);
 
-        /*.binding.customToolbar.title.setText(getResources().getString(R.string.change_text));
-        binding.customToolbar.imgBackArrow.setOnClickListener(e-> navController.popBackStack());*/
         binding.toolbarTitle.setText(getResources().getString(R.string.app_name));
 
         initialize();
@@ -45,8 +48,10 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
      * method to initialize components
      */
     private void initialize(){
+        list = new ArrayList<>();
         repo = new HomeRepo(requireContext());
         repo.getHomeMenuItems().observe(requireActivity(),menuItems->{
+            list = menuItems;
             adapter = new HomeAdapter(menuItems,requireContext(),this);
             binding.rvHomeMenu.setAdapter(adapter);
             GridLayoutManager layoutManager = new GridLayoutManager(requireContext(), 2);
@@ -68,6 +73,10 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
 
     @Override
     public void onMyOwnClick(int position, View view) {
+        HomeMenu obj = list.get(position);
+        if (position==1){
+            navController.navigate(R.id.action_homeFragment_to_selectionFragment);
+        }
 
     }
 }
