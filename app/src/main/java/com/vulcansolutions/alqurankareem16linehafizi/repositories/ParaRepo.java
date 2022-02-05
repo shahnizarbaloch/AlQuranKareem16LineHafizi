@@ -13,26 +13,26 @@ import java.util.List;
  */
 public class ParaRepo {
 
-    private final LiveData<List<ParaRoom>> surahList;
+    private final LiveData<List<ParaRoom>> paraList;
     private static ParaDAO dao;
 
 
     public ParaRepo(Application application){
         MyRoomDatabase database = MyRoomDatabase.getInstance(application);
         dao = database.paraDAO();
-        surahList = dao.listOfPara();
+        paraList = dao.listOfPara();
     }
 
 
-    public LiveData<List<ParaRoom>> getSurahList(){
-        return surahList;
+    public LiveData<List<ParaRoom>> getParaList(){
+        return paraList;
     }
 
-    public void insertSurah(ParaRoom paraRoom){
+    public void insertPara(ParaRoom paraRoom){
         dao.insert(paraRoom);
     }
 
-    public void deleteSurah(ParaRoom paraRoom){
+    public void deletePara(ParaRoom paraRoom){
         dao.delete(paraRoom);
     }
 
