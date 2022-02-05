@@ -10,13 +10,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionAdapter;
-import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSurahBinding;
+import androidx.recyclerview.widget.GridLayoutManager;
 
-public class SurahSelectionFragment extends Fragment implements SelectionAdapter.OnMyOwnClickListener {
+import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionSurahAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSurahBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.SurahRepo;
+
+public class SurahSelectionFragment extends Fragment implements SelectionSurahAdapter.OnMyOwnClickListener {
 
     private FragmentSurahBinding binding;
-    private NavController navController;
+    NavController navController;
+    SurahRepo repo;
+    SelectionSurahAdapter adapter;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Nullable
@@ -32,7 +37,12 @@ public class SurahSelectionFragment extends Fragment implements SelectionAdapter
      * method to initialize components
      */
     private void initialize() {
-        SelectionAdapter adapter = new SelectionAdapter(requireContext(),null,this);
+        repo = new SurahRepo(requireActivity().getApplication());
+        repo.getSurahList().observe(getViewLifecycleOwner(),list->{
+            adapter = new SelectionSurahAdapter(requireContext(),list,this);
+            binding.rvSurah.setAdapter(adapter);
+            binding.rvSurah.setLayoutManager(new GridLayoutManager(requireContext(),1));
+        });
     }
 
     @Override

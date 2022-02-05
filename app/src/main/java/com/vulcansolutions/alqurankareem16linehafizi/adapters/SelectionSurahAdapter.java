@@ -12,20 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
-import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectionAdapter extends RecyclerView.Adapter<SelectionAdapter.MyViewHolder> implements Filterable {
+public class SelectionSurahAdapter extends RecyclerView.Adapter<SelectionSurahAdapter.MyViewHolder> implements Filterable {
 
     private final Context context;
-    private final List<Selection> list;
-    private final List<Selection> filterList;
+    private final List<SurahRoom> list;
+    private final List<SurahRoom> filterList;
     private final OnMyOwnClickListener onMyOwnClickListener;
 
 
-    public SelectionAdapter(Context context, List<Selection> list,
-                            OnMyOwnClickListener onMyOwnClickListener) {
+    public SelectionSurahAdapter(Context context, List<SurahRoom> list,
+                                 OnMyOwnClickListener onMyOwnClickListener) {
         this.context = context;
         this.list = list;
         this.onMyOwnClickListener = onMyOwnClickListener;
@@ -42,9 +42,9 @@ public class SelectionAdapter extends RecyclerView.Adapter<SelectionAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        final Selection obj = list.get(position);
-        holder.tv_title.setText(obj.getTitle());
-        holder.tv_index_number.setText(obj.getIndex());
+        final SurahRoom obj = list.get(position);
+        holder.tv_title.setText(obj.getArabicTitle());
+        holder.tv_index_number.setText(obj.getIndexNumber());
 
     }
 
@@ -96,14 +96,14 @@ public class SelectionAdapter extends RecyclerView.Adapter<SelectionAdapter.MyVi
     public Filter filteredList = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<Selection> filteredList = new ArrayList<>();
+            List<SurahRoom> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
                 filteredList=filterList;
             } else {
                 String filterText = constraint.toString().toLowerCase().trim();
-                for (Selection item : filterList) {
-                    if (item.getTitle().toLowerCase().contains(filterText)
-                            ||item.getIndex().toLowerCase().contains(filterText)) {
+                for (SurahRoom item : filterList) {
+                    if (item.getArabicTitle().toLowerCase().contains(filterText)
+                            ||item.getIndexNumber().toLowerCase().contains(filterText)) {
                         filteredList.add(item);
                     }
                 }
