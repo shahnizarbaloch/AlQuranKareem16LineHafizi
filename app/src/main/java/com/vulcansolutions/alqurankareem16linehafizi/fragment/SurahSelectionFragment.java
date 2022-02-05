@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSurahBinding;
 

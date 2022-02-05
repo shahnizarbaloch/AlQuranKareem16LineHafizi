@@ -4,6 +4,9 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import com.vulcansolutions.alqurankareem16linehafizi.dao.BookmarkDAO;
+import com.vulcansolutions.alqurankareem16linehafizi.dao.ParaDAO;
+import com.vulcansolutions.alqurankareem16linehafizi.dao.SurahDAO;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.BookmarkRoom;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
@@ -13,11 +16,11 @@ public abstract class MyRoomDatabase extends RoomDatabase {
 
     private static MyRoomDatabase instance;
 
-    /*public abstract FavouriteContactDAO favContactDAO();
+    public abstract SurahDAO surahDAO();
 
-    public abstract RecentCallDAO recentCallDAO();
+    public abstract ParaDAO paraDAO();
 
-    public abstract ProfileDAO profileDAO();*/
+    public abstract BookmarkDAO bookmarkDAO();
 
     public static synchronized MyRoomDatabase getInstance(Context context){
         if(instance==null){
