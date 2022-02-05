@@ -59,12 +59,12 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 twoOptionHolder.tv_title.setText(obj.getTitle());
                 twoOptionHolder.tv_text.setText(obj.getText());
                 Picasso.get().load(obj.getImg()).into(twoOptionHolder.imgIcon);
-                if (obj.getTitle().equalsIgnoreCase(context.getString(R.string.home_menu_bookmark))){
+                /*if (obj.getTitle().equalsIgnoreCase(context.getString(R.string.home_menu_bookmark))){
                     twoOptionHolder.main_card.setCardBackgroundColor(context.getResources().getColor(R.color.card_color1));
                 }
                 else if (obj.getTitle().equalsIgnoreCase(context.getString(R.string.home_menu_share))){
                     twoOptionHolder.main_card.setCardBackgroundColor(context.getResources().getColor(R.color.card_color2));
-                }
+                }*/
                 break;
 
             case TYPE_LARGE:
@@ -73,12 +73,12 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 singleOptionHolder.tv_description.setText(obj.getText());
                 Picasso.get().load(obj.getImg()).into(singleOptionHolder.imgIcon);
 
-                if (obj.getTitle().equalsIgnoreCase(context.getString(R.string.home_menu_quran))){
+                /*if (obj.getTitle().equalsIgnoreCase(context.getString(R.string.home_menu_quran))){
                     singleOptionHolder.main_card.setCardBackgroundColor(context.getResources().getColor(R.color.card_color5));
                 }
                 else if(obj.getTitle().equalsIgnoreCase(context.getString(R.string.home_menu_continue_reciting))){
                     singleOptionHolder.main_card.setCardBackgroundColor(context.getResources().getColor(R.color.card_color3));
-                }
+                }*/
 
                 break;
         }

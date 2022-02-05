@@ -27,22 +27,22 @@ public class HomeRepo {
     private List<HomeMenu> setHomeMenuItems(){
         List<HomeMenu> list = new ArrayList<>();
         list.add(new HomeMenu(context.getResources().getString(R.string.home_menu_continue_reciting),
-                context.getResources().getString(R.string.home_menu_continue_reciting),
+                context.getResources().getString(R.string.last_page),
                 R.drawable.ic_continue_recite
         ));
 
         list.add(new HomeMenu(context.getResources().getString(R.string.home_menu_quran),
-                context.getResources().getString(R.string.home_menu_quran),
+                context.getResources().getString(R.string.start),
                 R.drawable.ic_recite
                 ));
 
         list.add(new HomeMenu(context.getResources().getString(R.string.home_menu_bookmark),
-                context.getResources().getString(R.string.home_menu_bookmark),
+                context.getResources().getString(R.string.go_to),
                 R.drawable.ic_bookmark
         ));
 
         list.add(new HomeMenu(context.getResources().getString(R.string.home_menu_share),
-                context.getResources().getString(R.string.home_menu_share),
+                context.getResources().getString(R.string.share_it_with_everyone),
                 R.drawable.ic_share
         ));
         return list;

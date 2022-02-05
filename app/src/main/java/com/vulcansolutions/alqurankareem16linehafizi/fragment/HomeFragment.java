@@ -11,6 +11,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.vulcansolutions.alqurankareem16linehafizi.R;
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.HomeAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentHomeBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.HomeRepo;
@@ -26,8 +27,9 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater,container,false);
 
-        /*binding.customToolbar.title.setText(getResources().getString(R.string.change_text));
+        /*.binding.customToolbar.title.setText(getResources().getString(R.string.change_text));
         binding.customToolbar.imgBackArrow.setOnClickListener(e-> navController.popBackStack());*/
+        binding.toolbarTitle.setText(getResources().getString(R.string.app_name));
 
         initialize();
         return binding.getRoot();
