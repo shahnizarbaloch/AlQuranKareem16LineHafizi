@@ -32,4 +32,9 @@ public interface SurahDAO {
     /*@Query("")
     LiveData<Integer> getSelectedSurahAyatCount(String surahNo);*/
 
+    /**
+     * method to delete complete data from surah table
+     */
+    @Query("DELETE FROM quran_surah")
+    void deleteCompleteTable();
 }

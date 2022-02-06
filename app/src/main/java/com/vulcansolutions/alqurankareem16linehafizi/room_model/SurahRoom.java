@@ -2,6 +2,7 @@ package com.vulcansolutions.alqurankareem16linehafizi.room_model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "quran_surah")
@@ -31,6 +32,16 @@ public class SurahRoom {
     private String downAvailable;
 
     public SurahRoom() {
+    }
+
+    @Ignore
+    public SurahRoom(int id, String indexNumber, String pageNumber, String englishTitle, String arabicTitle, String downAvailable) {
+        this.id = id;
+        this.indexNumber = indexNumber;
+        this.pageNumber = pageNumber;
+        this.englishTitle = englishTitle;
+        this.arabicTitle = arabicTitle;
+        this.downAvailable = downAvailable;
     }
 
     public int getId() {

@@ -7,10 +7,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
-
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
-import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
-
 import java.util.List;
 
 @Dao
@@ -32,7 +29,9 @@ public interface ParaDAO {
     @Query("SELECT * FROM quran_para WHERE index_number = :id")
     LiveData<ParaRoom> getParaByIndex(String id);
 
-    /*@Query("")
+    /*.@Query("")
     LiveData<Integer> getSelectedSurahAyatCount(String surahNo);*/
 
+    @Query("DELETE FROM quran_para")
+    void deleteCompleteTable();
 }

@@ -1,6 +1,5 @@
 package com.vulcansolutions.alqurankareem16linehafizi.fragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +24,6 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
     SelectionSurahAdapter adapter;
     List<SurahRoom> list;
 
-    @SuppressLint("SetJavaScriptEnabled")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,6 +39,10 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
     private void initialize() {
         repo = new SurahRepo(requireActivity().getApplication());
         repo.getSurahList().observe(getViewLifecycleOwner(),list->{
+            if(list.isEmpty()){
+                repo.deleteTableData();
+                repo.insertSurah();
+            }
             this.list = list;
             adapter = new SelectionSurahAdapter(requireContext(),list,this);
             binding.rvSurah.setAdapter(adapter);

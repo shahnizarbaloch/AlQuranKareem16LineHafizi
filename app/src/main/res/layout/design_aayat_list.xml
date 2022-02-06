@@ -14,30 +14,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_index_number"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textColor="@color/colorText2"
-            android:textSize="@dimen/_16sdp"
-            android:textStyle="bold"
-            tools:text="1" />
+            >
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_title"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/index_number_background"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_index_number"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorText2"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                tools:text="1" />
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_centerInParent="true"
-            android:layout_toStartOf="@+id/tv_index_number"
-            android:gravity="center"
+            android:layout_toEndOf="@+id/rl"
             android:padding="@dimen/_4sdp"
-            android:textColor="@color/colorText2"
-            android:textSize="@dimen/_16sdp"
-            android:textStyle="bold"
-            tools:text="قَلَ فَمَا خَطْبُكُم " />
+            android:layout_marginStart="@dimen/_10sdp"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textColor="@color/colorText2"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold"
+                tools:text="قَلَ فَمَا خَطْبُكُم " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title_english"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textColor="@color/colorText2"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:text="Alif Laam Meem"
+                android:layout_marginTop="@dimen/_2sdp"/>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_like"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/normal_heart"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            />
+
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

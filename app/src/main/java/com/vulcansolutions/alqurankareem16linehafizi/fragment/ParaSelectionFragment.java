@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionParaAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentParahBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.ParaRepo;
@@ -41,6 +42,10 @@ public class ParaSelectionFragment extends Fragment implements SelectionParaAdap
     private void initialize() {
         repo = new ParaRepo(requireActivity().getApplication());
         repo.getParaList().observe(getViewLifecycleOwner(),list->{
+            if(list.isEmpty()){
+                repo.deleteTableData();
+                repo.insertPara();
+            }
             this.list = list;
             adapter = new SelectionParaAdapter(requireContext(),list,this);
             binding.rvSurah.setAdapter(adapter);
