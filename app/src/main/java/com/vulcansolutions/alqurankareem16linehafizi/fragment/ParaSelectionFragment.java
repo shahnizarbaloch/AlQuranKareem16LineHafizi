@@ -11,25 +11,25 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
-import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionSurahAdapter;
-import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSurahBinding;
-import com.vulcansolutions.alqurankareem16linehafizi.repositories.SurahRepo;
-import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
+import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionParaAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentParahBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.ParaRepo;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
 import java.util.List;
 
-public class SurahSelectionFragment extends Fragment implements SelectionSurahAdapter.OnMyOwnClickListener {
+public class ParaSelectionFragment extends Fragment implements SelectionParaAdapter.OnMyOwnClickListener {
 
-    private FragmentSurahBinding binding;
+    private FragmentParahBinding binding;
     NavController navController;
-    SurahRepo repo;
-    SelectionSurahAdapter adapter;
-    List<SurahRoom> list;
+    ParaRepo repo;
+    SelectionParaAdapter adapter;
+    List<ParaRoom> list;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentSurahBinding.inflate(inflater,container,false);
+        binding = FragmentParahBinding.inflate(inflater,container,false);
 
         initialize();
         return binding.getRoot();
@@ -39,10 +39,10 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
      * method to initialize components
      */
     private void initialize() {
-        repo = new SurahRepo(requireActivity().getApplication());
-        repo.getSurahList().observe(getViewLifecycleOwner(),list->{
+        repo = new ParaRepo(requireActivity().getApplication());
+        repo.getParaList().observe(getViewLifecycleOwner(),list->{
             this.list = list;
-            adapter = new SelectionSurahAdapter(requireContext(),list,this);
+            adapter = new SelectionParaAdapter(requireContext(),list,this);
             binding.rvSurah.setAdapter(adapter);
             binding.rvSurah.setLayoutManager(new GridLayoutManager(requireContext(),1));
         });
@@ -56,7 +56,7 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
 
     @Override
     public void onMyOwnClick(int position, View view) {
-        SurahRoom obj = list.get(position);
+        ParaRoom obj = list.get(position);
         //Goto reading page..
 
     }

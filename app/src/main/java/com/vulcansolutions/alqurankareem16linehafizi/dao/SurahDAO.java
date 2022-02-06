@@ -29,7 +29,7 @@ public interface SurahDAO {
     @Query("SELECT * FROM quran_surah WHERE index_number = :id")
     LiveData<SurahRoom> getSurahByIndex(String id);
 
-    @Query("")
-    LiveData<Integer> getSelectedSurahAyatCount(String surahNo);
+    /*@Query("")
+    LiveData<Integer> getSelectedSurahAyatCount(String surahNo);*/
 
 }

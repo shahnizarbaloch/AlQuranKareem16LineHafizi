@@ -40,9 +40,9 @@ public class ParaRepo {
         return dao.getParaByIndex(indexNumber);
     }
 
-    public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
+    /*public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
         return dao.getSelectedSurahAyatCount(surahNo);
-    }
+    }*/
 
 
 

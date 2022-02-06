@@ -12,7 +12,18 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_selectionFragment"
-            app:destination="@id/selectionFragment" />
+            app:destination="@id/selectionFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
+        <action
+            android:id="@+id/action_homeFragment_to_bookmarkSelectionFragment"
+            app:destination="@id/bookmarkSelectionFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
     </fragment>
 
     <fragment
@@ -20,5 +31,10 @@
         android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.SelectionFragment"
         android:label="SelectionFragment"
         tools:layout="@layout/fragment_selection"/>
+    <fragment
+        android:id="@+id/bookmarkSelectionFragment"
+        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BookmarkSelectionFragment"
+        android:label="BookmarkSelectionFragment"
+        tools:layout="@layout/fragment_bookmark"/>
 
 </navigation>

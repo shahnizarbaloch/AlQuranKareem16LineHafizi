@@ -43,9 +43,9 @@ public class BookmarkRepo {
         return dao.getBookmarkByIndex(indexNumber);
     }
 
-    public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
+    /*public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
         return dao.getSelectedSurahAyatCount(surahNo);
-    }
+    }*/
 
 
 

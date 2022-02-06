@@ -7,6 +7,10 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "quran_bookmark")
 public class BookmarkRoom {
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "_id")
     private int id;

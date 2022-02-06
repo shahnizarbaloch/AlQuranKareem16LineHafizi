@@ -7,6 +7,8 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "quran_para")
 public class ParaRoom {
 
+
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "_id")
     private int id;
@@ -71,5 +73,8 @@ public class ParaRoom {
 
     public void setDownAvailable(String downAvailable) {
         this.downAvailable = downAvailable;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }

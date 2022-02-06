@@ -31,7 +31,7 @@ public interface BookmarkDAO {
     @Query("SELECT * FROM quran_bookmark WHERE index_number = :id")
     LiveData<BookmarkRoom> getBookmarkByIndex(String id);
 
-    @Query("")
-    LiveData<Integer> getSelectedSurahAyatCount(String surahNo);
+   /* @Query("")
+    LiveData<Integer> getSelectedSurahAyatCount(String surahNo);*/
 
 }

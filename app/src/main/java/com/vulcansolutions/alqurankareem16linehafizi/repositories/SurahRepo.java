@@ -39,9 +39,9 @@ public class SurahRepo {
         return dao.getSurahByIndex(indexNumber);
     }
 
-    public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
+    /*public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
         return dao.getSelectedSurahAyatCount(surahNo);
-    }
+    }*/
 
 
 

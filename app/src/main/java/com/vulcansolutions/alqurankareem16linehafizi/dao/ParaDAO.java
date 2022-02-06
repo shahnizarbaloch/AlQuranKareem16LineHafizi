@@ -32,7 +32,7 @@ public interface ParaDAO {
     @Query("SELECT * FROM quran_para WHERE index_number = :id")
     LiveData<ParaRoom> getParaByIndex(String id);
 
-    @Query("")
-    LiveData<Integer> getSelectedSurahAyatCount(String surahNo);
+    /*@Query("")
+    LiveData<Integer> getSelectedSurahAyatCount(String surahNo);*/
 
 }

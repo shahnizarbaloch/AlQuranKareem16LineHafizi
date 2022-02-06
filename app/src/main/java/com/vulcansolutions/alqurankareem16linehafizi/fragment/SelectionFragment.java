@@ -40,8 +40,8 @@ public class SelectionFragment extends Fragment {
     private void initialize() {
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getChildFragmentManager(), FragmentPagerItems.with(requireContext())
-                .add(getString(R.string.menu_1_surah), HomeFragment.class)
-                .add(getString(R.string.menu_2_juz), HomeFragment.class)
+                .add(getString(R.string.menu_1_surah), SurahSelectionFragment.class)
+                .add(getString(R.string.menu_2_para), ParaSelectionFragment.class)
                 .add(getString(R.string.menu_3_sajda), HomeFragment.class)
                 .add(getString(R.string.menu_4_manzil), HomeFragment.class)
                 .create());

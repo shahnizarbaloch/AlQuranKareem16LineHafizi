@@ -1,6 +1,5 @@
 package com.vulcansolutions.alqurankareem16linehafizi.fragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,25 +10,29 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
-import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionSurahAdapter;
-import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSurahBinding;
-import com.vulcansolutions.alqurankareem16linehafizi.repositories.SurahRepo;
-import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
+
+import com.vulcansolutions.alqurankareem16linehafizi.R;
+import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionBookmarkAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentBookmarkBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.BookmarkRoom;
 import java.util.List;
 
-public class SurahSelectionFragment extends Fragment implements SelectionSurahAdapter.OnMyOwnClickListener {
+public class BookmarkSelectionFragment extends Fragment implements SelectionBookmarkAdapter.OnMyOwnClickListener {
 
-    private FragmentSurahBinding binding;
+    private FragmentBookmarkBinding binding;
     NavController navController;
-    SurahRepo repo;
-    SelectionSurahAdapter adapter;
-    List<SurahRoom> list;
+    BookmarkRepo repo;
+    SelectionBookmarkAdapter adapter;
+    List<BookmarkRoom> list;
 
-    @SuppressLint("SetJavaScriptEnabled")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentSurahBinding.inflate(inflater,container,false);
+        binding = FragmentBookmarkBinding.inflate(inflater,container,false);
+
+        binding.llToolbar.toolbarTitle.setText(getResources().getString(R.string.home_menu_bookmark));
+        binding.llToolbar.imgBackArrow.setOnClickListener(e->navController.popBackStack());
 
         initialize();
         return binding.getRoot();
@@ -39,10 +42,10 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
      * method to initialize components
      */
     private void initialize() {
-        repo = new SurahRepo(requireActivity().getApplication());
-        repo.getSurahList().observe(getViewLifecycleOwner(),list->{
+        repo = new BookmarkRepo(requireActivity().getApplication());
+        repo.getBookmarkList().observe(getViewLifecycleOwner(),list->{
             this.list = list;
-            adapter = new SelectionSurahAdapter(requireContext(),list,this);
+            adapter = new SelectionBookmarkAdapter(requireContext(),list,this);
             binding.rvSurah.setAdapter(adapter);
             binding.rvSurah.setLayoutManager(new GridLayoutManager(requireContext(),1));
         });
@@ -56,7 +59,7 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
 
     @Override
     public void onMyOwnClick(int position, View view) {
-        SurahRoom obj = list.get(position);
+        BookmarkRoom obj = list.get(position);
         //Goto reading page..
 
     }

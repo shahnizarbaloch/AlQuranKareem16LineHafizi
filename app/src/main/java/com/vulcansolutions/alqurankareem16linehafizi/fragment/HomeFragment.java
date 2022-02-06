@@ -77,6 +77,9 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
         if (position==1){
             navController.navigate(R.id.action_homeFragment_to_selectionFragment);
         }
+        else if(position==2){
+            navController.navigate(R.id.action_homeFragment_to_bookmarkSelectionFragment);
+        }
 
     }
 }
