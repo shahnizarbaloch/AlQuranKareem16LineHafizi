@@ -1,6 +1,5 @@
 package com.vulcansolutions.alqurankareem16linehafizi.fragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,20 +9,25 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.vulcansolutions.alqurankareem16linehafizi.R;
-import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentNewDemoBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentBorderSelectionBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.BorderSelectionRepo;
 
-public class DemoFragment extends Fragment {
+public class BorderSelectionFragment extends Fragment {
 
-    private FragmentNewDemoBinding binding;
+    private FragmentBorderSelectionBinding binding;
     private NavController navController;
+    BorderSelectionRepo repo;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentNewDemoBinding.inflate(inflater,container,false);
+        binding = FragmentBorderSelectionBinding.inflate(inflater,container,false);
 
-        binding.llToolbar.toolbarTitle.setText(getResources().getString(R.string.app_name));
+        binding.llToolbar.toolbarTitle.setText(getResources().getString(R.string.select_border));
         binding.llToolbar.imgBackArrow.setOnClickListener(e->navController.popBackStack());
 
         initialize();
@@ -32,10 +36,15 @@ public class DemoFragment extends Fragment {
     }
 
     /**
-     * method to initialize components
+     * method to initialize components.
      */
     private void initialize() {
+        repo = new BorderSelectionRepo();
+        repo.getBorderList().observe(getViewLifecycleOwner(),borderList->{
+            binding.rvBorderSelection.setLayoutManager(new LinearLayoutManager(requireContext()
+                    , LinearLayoutManager.HORIZONTAL, true));
 
+        });
     }
 
     @Override
