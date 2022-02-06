@@ -16,7 +16,7 @@
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_home_menu_full_width.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_bookmar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_bookmark.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_border_selection.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_border_selection.xml" value="0.1" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_manzil.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_new_demo.xml" value="0.20416666666666666" />
@@ -44,5 +44,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

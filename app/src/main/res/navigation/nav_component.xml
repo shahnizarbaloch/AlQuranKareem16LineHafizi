@@ -24,6 +24,13 @@
             app:exitAnim="@anim/exit"
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
+        <action
+            android:id="@+id/action_homeFragment_to_borderSelectionFragment"
+            app:destination="@id/borderSelectionFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
     </fragment>
 
     <fragment
@@ -36,5 +43,10 @@
         android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BookmarkSelectionFragment"
         android:label="BookmarkSelectionFragment"
         tools:layout="@layout/fragment_bookmark"/>
+    <fragment
+        android:id="@+id/borderSelectionFragment"
+        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BorderSelectionFragment"
+        android:label="BorderSelectionFragment"
+        tools:layout="@layout/fragment_border_selection"/>
 
 </navigation>

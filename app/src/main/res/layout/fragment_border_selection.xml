@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar_custom"
-        android:id="@+id/ll_toolbar"/>
+    <include
+        android:id="@+id/ll_toolbar"
+        layout="@layout/toolbar_custom" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_toolbar"
@@ -17,34 +18,24 @@
         android:weightSum="10">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_full"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
             android:src="@drawable/border_1"
-            android:layout_margin="@dimen/_5sdp"
-            />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/select_border"
-            android:textColor="@color/colorText2"
-            android:gravity="center"
-            android:padding="@dimen/_8sdp"
-            android:textSize="@dimen/_16sdp"
-            />
+            android:scaleType="centerInside"
+            android:layout_above="@+id/rv_border_selection"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_border_selection"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="center"
-            tools:listitem="@layout/design_border_selection"
-            />
+            android:layout_margin="@dimen/_10sdp"
+            tools:listitem="@layout/design_border_selection" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
