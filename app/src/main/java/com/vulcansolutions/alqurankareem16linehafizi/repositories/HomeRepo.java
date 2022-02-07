@@ -41,9 +41,9 @@ public class HomeRepo {
                 R.drawable.ic_bookmark
         ));
 
-        list.add(new HomeMenu(context.getResources().getString(R.string.home_menu_share),
-                context.getResources().getString(R.string.share_it_with_everyone),
-                R.drawable.ic_share
+        list.add(new HomeMenu(context.getResources().getString(R.string.settings),
+                context.getResources().getString(R.string.change),
+                R.drawable.ic_setting
         ));
         return list;
     }

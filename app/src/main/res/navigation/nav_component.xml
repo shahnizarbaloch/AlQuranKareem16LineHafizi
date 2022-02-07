@@ -25,8 +25,8 @@
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
         <action
-            android:id="@+id/action_homeFragment_to_borderSelectionFragment"
-            app:destination="@id/borderSelectionFragment"
+            android:id="@+id/action_homeFragment_to_moreFragment"
+            app:destination="@id/moreFragment"
             app:enterAnim="@anim/enter"
             app:exitAnim="@anim/exit"
             app:popEnterAnim="@anim/pop_enter"
@@ -48,5 +48,18 @@
         android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BorderSelectionFragment"
         android:label="BorderSelectionFragment"
         tools:layout="@layout/fragment_border_selection"/>
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.MoreFragment"
+        android:label="MoreFragment"
+        tools:layout="@layout/fragment_more">
+        <action
+            android:id="@+id/action_moreFragment_to_borderSelectionFragment"
+            app:destination="@id/borderSelectionFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
+    </fragment>
 
 </navigation>

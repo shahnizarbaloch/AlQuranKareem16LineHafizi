@@ -19,9 +19,8 @@ public class DeviceInfo {
     public static String HOST = android.os.Build.HOST;
 
 
-    public String getDeviceDetails(String MSISDN){
+    public String getDeviceDetails(){
         String s="";
-        s += "\n Contact: " + MSISDN;
         s += "\n OS Version: " + OS_VERSION + "(" + android.os.Build.VERSION.INCREMENTAL + ")";
         s += "\n OS Name: " + OS_NAME;
         s += "\n OS API Level: " + android.os.Build.VERSION.SDK_INT;

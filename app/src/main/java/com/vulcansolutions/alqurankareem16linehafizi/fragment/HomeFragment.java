@@ -26,7 +26,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
     NavController navController;
     HomeRepo repo;
     HomeAdapter adapter;
-    private List<HomeMenu> list;
+    List<HomeMenu> list;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -69,11 +69,13 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
             binding.rvHomeMenu.setLayoutManager(layoutManager);
 
         });
+
+        binding.imgMenu.setOnClickListener(e->navController.navigate(R.id.action_homeFragment_to_moreFragment));
     }
 
     @Override
     public void onMyOwnClick(int position, View view) {
-        HomeMenu obj = list.get(position);
+        //HomeMenu obj = list.get(position);
         if (position==1){
             navController.navigate(R.id.action_homeFragment_to_selectionFragment);
         }
@@ -81,7 +83,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
             navController.navigate(R.id.action_homeFragment_to_bookmarkSelectionFragment);
         }
         else if (position==3){
-            navController.navigate(R.id.action_homeFragment_to_borderSelectionFragment);
+            navController.navigate(R.id.action_homeFragment_to_moreFragment);
         }
 
     }

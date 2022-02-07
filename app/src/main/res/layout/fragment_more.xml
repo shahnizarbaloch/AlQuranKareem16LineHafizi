@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <include layout="@layout/toolbar_custom"
+        android:id="@+id/ll_toolbar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_more"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_app_version"
+        android:layout_below="@+id/ll_toolbar"
+        tools:listitem="@layout/design_more"
+        android:layout_margin="@dimen/_4sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_app_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:text="App Version"
+        android:gravity="center"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/colorText2"
+        android:padding="@dimen/_4sdp"
+        android:layout_margin="@dimen/_4sdp"
+        />
+
+</RelativeLayout>
