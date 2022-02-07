@@ -31,18 +31,41 @@
             app:exitAnim="@anim/exit"
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
+        <action
+            android:id="@+id/action_homeFragment_to_pageViewFragment"
+            app:destination="@id/pageViewFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
     </fragment>
 
     <fragment
         android:id="@+id/selectionFragment"
         android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.SelectionFragment"
         android:label="SelectionFragment"
-        tools:layout="@layout/fragment_selection"/>
+        tools:layout="@layout/fragment_selection">
+        <action
+            android:id="@+id/action_selectionFragment_to_pageViewFragment"
+            app:destination="@id/pageViewFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
+    </fragment>
     <fragment
         android:id="@+id/bookmarkSelectionFragment"
         android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BookmarkSelectionFragment"
         android:label="BookmarkSelectionFragment"
-        tools:layout="@layout/fragment_bookmark"/>
+        tools:layout="@layout/fragment_bookmark">
+        <action
+            android:id="@+id/action_bookmarkSelectionFragment_to_pageViewFragment"
+            app:destination="@id/pageViewFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
+    </fragment>
     <fragment
         android:id="@+id/borderSelectionFragment"
         android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BorderSelectionFragment"
@@ -61,5 +84,10 @@
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
     </fragment>
+    <fragment
+        android:id="@+id/pageViewFragment"
+        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.PageViewFragment"
+        android:label="PageViewFragment"
+        tools:layout="@layout/fragment_page_view"/>
 
 </navigation>

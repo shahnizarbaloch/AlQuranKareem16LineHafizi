@@ -12,6 +12,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.vulcansolutions.alqurankareem16linehafizi.R;
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionParaAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentParahBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.ParaRepo;
@@ -62,7 +63,7 @@ public class ParaSelectionFragment extends Fragment implements SelectionParaAdap
     @Override
     public void onMyOwnClick(int position, View view) {
         ParaRoom obj = list.get(position);
-        //Goto reading page..
+        navController.navigate(R.id.action_selectionFragment_to_pageViewFragment);
 
     }
 }

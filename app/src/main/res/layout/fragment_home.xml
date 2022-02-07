@@ -8,9 +8,9 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
+        android:alpha="0.3"
         android:background="@drawable/bg_home"
-        android:scaleType="fitXY"
-        />
+        android:scaleType="fitXY" />
 
     <LinearLayout
         android:id="@+id/ll_toolbar"
