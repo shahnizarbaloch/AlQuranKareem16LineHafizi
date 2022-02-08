@@ -4,7 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.vulcansolutions.alqurankareem16linehafizi.R;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.vulcansolutions.alqurankareem16linehafizi.BuildConfig;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.ActivityMainBinding;
 
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("fonts/font.ttf")
+                                .setDefaultFontPath("fonts/Seravek.ttf")
                                 .setFontAttrId(io.github.inflationx.calligraphy3.R.attr.fontPath)
                                 .build()))
                 .build());
@@ -44,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
      * method to initialize components
      */
     private void initialize() {
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId(BuildConfig.AD_ID);
     }
 
 }

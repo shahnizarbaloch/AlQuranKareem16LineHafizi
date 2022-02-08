@@ -10,6 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ProcessLifecycleOwner;
+
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class App extends Application implements DefaultLifecycleObserver {
@@ -22,6 +26,10 @@ public class App extends Application implements DefaultLifecycleObserver {
         super.onCreate();
 
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+
+        MobileAds.initialize(this, initializationStatus -> {
+
+        });
 
         createNotificationChannel();
 

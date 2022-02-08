@@ -22,12 +22,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BASE_URL", "\"https://api.slickcall.com/api/\""
             buildConfigField "boolean", "SANDBOX", "false"
-            buildConfigField "String", "AD_ID", "\"Release\""
+            buildConfigField "String", "AD_ID", "\"ca-app-pub-3940256099942544~3347511713\""
         }
         debug {
             buildConfigField "String", "BASE_URL", "\"https://apidev.slickcall.com/api/\""
             buildConfigField "boolean", "SANDBOX", "true"
-            buildConfigField "String", "AD_ID", "\"Debug\""
+            buildConfigField "String", "AD_ID", "\"ca-app-pub-3940256099942544~3347511713\""
         }
     }
     compileOptions {
@@ -60,7 +60,7 @@ dependencies {
 
 
     //LiveData Mutable Live Data and Other Essentials kotlin libraries
-    implementation 'androidx.databinding:databinding-runtime:7.1.0'
+    implementation 'androidx.databinding:databinding-runtime:7.1.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
@@ -142,4 +142,8 @@ dependencies {
     implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
     //Optional: see how to use the utility.
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
+
+
+    //Google ADS
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
 }

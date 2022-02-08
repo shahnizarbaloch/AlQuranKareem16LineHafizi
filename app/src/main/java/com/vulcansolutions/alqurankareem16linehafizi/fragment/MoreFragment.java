@@ -1,6 +1,7 @@
 package com.vulcansolutions.alqurankareem16linehafizi.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,6 +10,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,6 +20,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.MoreAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.databinding.DialogConfirmationBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentMoreBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.models.MoreMenu;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.MoreRepo;
@@ -94,6 +98,9 @@ public class MoreFragment extends Fragment implements MoreAdapter.OnMyOwnClickLi
         else if (obj.getTitle().equalsIgnoreCase(getString(R.string.feedback))){
             gotoPlayStore(requireContext());
         }
+        else if (obj.getTitle().equalsIgnoreCase(getString(R.string.remove_ads))){
+            removeAds(getString(R.string.for_one_year),getString(R.string.for_life_time));
+        }
     }
 
     /**
@@ -115,6 +122,23 @@ public class MoreFragment extends Fragment implements MoreAdapter.OnMyOwnClickLi
         } catch (android.content.ActivityNotFoundException anfe) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
         }
+    }
+
+
+    private void removeAds(String button1Text,String button2Text){
+        final Dialog dialog = new Dialog(requireContext(),R.style.Dialog);
+        DialogConfirmationBinding dialogLogoutConfirmationBinding = DialogConfirmationBinding.inflate(LayoutInflater.from(requireContext()));
+        dialog.setContentView(dialogLogoutConfirmationBinding.getRoot());
+
+        dialog.setCancelable(true);
+
+        dialogLogoutConfirmationBinding.btn1.setText(button1Text);
+        dialogLogoutConfirmationBinding.btn2.setText(button2Text);
+
+        dialogLogoutConfirmationBinding.btn1.setOnClickListener(e->dialog.dismiss());
+        dialogLogoutConfirmationBinding.btn2.setOnClickListener(e->dialog.dismiss());
+
+        dialog.show();
     }
 
     /**

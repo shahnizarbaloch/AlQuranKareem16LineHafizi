@@ -29,6 +29,10 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="remove_ads">Remove Ads</string>
     <string name="contact_us">Contact Us</string>
+    <string name="change_text">Change Text</string>
+    <string name="for_life_time">For lifetime</string>
+    <string name="for_one_year">For one year</string>
+    <string name="enable_or_disable_push_notification_according_to_your_need_we_send_islamic_related_notifications">Enable or disable push notification according to your need, we send islamic related notifications.</string>
 
 
 </resources>

@@ -10,22 +10,20 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
-
 import com.vulcansolutions.alqurankareem16linehafizi.R;
-import com.vulcansolutions.alqurankareem16linehafizi.adapters.HomeAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.adapters.HomeAdapterNew;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentHomeBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.models.HomeMenu;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.HomeRepo;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickListener {
+public class HomeFragment extends Fragment implements HomeAdapterNew.OnMyOwnClickListener {
 
     private FragmentHomeBinding binding;
     NavController navController;
     HomeRepo repo;
-    HomeAdapter adapter;
+    HomeAdapterNew adapter;
     List<HomeMenu> list;
 
     @Override
@@ -52,10 +50,10 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
         repo = new HomeRepo(requireContext());
         repo.getHomeMenuItems().observe(requireActivity(),menuItems->{
             list = menuItems;
-            adapter = new HomeAdapter(menuItems,requireContext(),this);
+            adapter = new HomeAdapterNew(requireContext(),menuItems,this);
             binding.rvHomeMenu.setAdapter(adapter);
-            GridLayoutManager layoutManager = new GridLayoutManager(requireContext(), 2);
-            layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            GridLayoutManager layoutManager = new GridLayoutManager(requireContext(), 1);
+            /*layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
                     if(adapter.getItemViewType(position)==0){
@@ -65,7 +63,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnMyOwnClickLi
                         return 1;
                     }
                 }
-            });
+            });*/
             binding.rvHomeMenu.setLayoutManager(layoutManager);
 
         });

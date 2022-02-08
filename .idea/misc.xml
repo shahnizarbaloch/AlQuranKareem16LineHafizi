@@ -3,18 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_border_selection.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_border_selection.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_page_view.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Shah Nizar Baloch/Documents/GitHub/AlQuranKareem16LineHafizi/app/src/main/res/layout/image_view_single_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_arrow_right_color_primary.xml" value="0.336" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2515" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_menu.xml" value="0.336" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_home_menu.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_home_menu_full_width.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/dialog_confirmation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/dialog_push_notification.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_more.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_new_demo.xml" value="0.36666666666666664" />
@@ -23,7 +20,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
