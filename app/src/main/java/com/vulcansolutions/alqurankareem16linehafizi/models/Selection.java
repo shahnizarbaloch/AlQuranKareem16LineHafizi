@@ -1,28 +1,71 @@
 package com.vulcansolutions.alqurankareem16linehafizi.models;
 
-public class Selection {
-    private String title;
-    private String index;
+import java.io.Serializable;
 
-    public Selection(String title, String index) {
-        this.title = title;
-        this.index = index;
+public class Selection implements Serializable {
+
+
+    private int id;
+
+    private String indexNumber;
+
+    private String pageNumber;
+
+    private String englishTitle;
+
+    private String arabicTitle;
+
+    private String downAvailable;
+
+    public Selection() {
     }
 
-    public String getTitle() {
-        return title;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public int getId() {
+        return id;
     }
 
-    public String getIndex() {
-        return index;
+    public String getIndexNumber() {
+        return indexNumber;
     }
 
-    public void setIndex(String index) {
-        this.index = index;
+    public void setIndexNumber(String indexNumber) {
+        this.indexNumber = indexNumber;
+    }
+
+    public String getPageNumber() {
+        return pageNumber;
+    }
+
+    public void setPageNumber(String pageNumber) {
+        this.pageNumber = pageNumber;
+    }
+
+    public String getEnglishTitle() {
+        return englishTitle;
+    }
+
+    public void setEnglishTitle(String englishTitle) {
+        this.englishTitle = englishTitle;
+    }
+
+    public String getArabicTitle() {
+        return arabicTitle;
+    }
+
+    public void setArabicTitle(String arabicTitle) {
+        this.arabicTitle = arabicTitle;
+    }
+
+    public String getDownAvailable() {
+        return downAvailable;
+    }
+
+    public void setDownAvailable(String downAvailable) {
+        this.downAvailable = downAvailable;
     }
 
 

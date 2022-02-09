@@ -2,10 +2,13 @@ package com.vulcansolutions.alqurankareem16linehafizi.room_model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "quran_bookmark")
-public class BookmarkRoom {
+public class BookmarkRoom implements Serializable {
 
     public void setId(int id) {
         this.id = id;
@@ -29,6 +32,9 @@ public class BookmarkRoom {
 
     @ColumnInfo(name = "down_available")
     private String downAvailable;
+
+    @Ignore
+    private boolean isBookmarked;
 
     public BookmarkRoom() {
     }
@@ -75,5 +81,13 @@ public class BookmarkRoom {
 
     public void setDownAvailable(String downAvailable) {
         this.downAvailable = downAvailable;
+    }
+
+    public boolean isBookmarked() {
+        return isBookmarked;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        isBookmarked = bookmarked;
     }
 }

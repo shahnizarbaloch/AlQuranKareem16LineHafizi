@@ -10,16 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ProcessLifecycleOwner;
-
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class App extends Application implements DefaultLifecycleObserver {
 
     public final String Tag = App.this.getClass().getCanonicalName();
     public static final String PUSH_NOTIFICATION_CHANNEL = "PUSH_NOTIFICATION";
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     public void onCreate() {
@@ -30,6 +28,8 @@ public class App extends Application implements DefaultLifecycleObserver {
         MobileAds.initialize(this, initializationStatus -> {
 
         });
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         createNotificationChannel();
 
@@ -124,7 +124,7 @@ public class App extends Application implements DefaultLifecycleObserver {
     public void sendFirebaseAnalytics(String msisdn,String event) {
         Bundle params = new Bundle();
         params.putString("MSISDN", msisdn);
-        FirebaseAnalytics.getInstance(getApplicationContext()).logEvent(event, params);
+        mFirebaseAnalytics.logEvent(event, params);
     }
 
 

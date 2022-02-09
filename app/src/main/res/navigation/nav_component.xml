@@ -88,6 +88,10 @@
         android:id="@+id/pageViewFragment"
         android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.PageViewFragment"
         android:label="PageViewFragment"
-        tools:layout="@layout/fragment_page_view"/>
+        tools:layout="@layout/fragment_page_view">
+        <argument
+            android:name="obj"
+            app:argType="com.vulcansolutions.alqurankareem16linehafizi.models.Selection" />
+    </fragment>
 
 </navigation>

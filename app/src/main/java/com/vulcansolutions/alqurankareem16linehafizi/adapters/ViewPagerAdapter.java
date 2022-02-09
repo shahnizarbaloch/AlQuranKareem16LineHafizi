@@ -5,17 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-
 import com.squareup.picasso.Picasso;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
 
 public class ViewPagerAdapter extends PagerAdapter {
-    private Context context;
-    private String[] imageUrls;
-    LayoutInflater layoutInflater;
+    Context context;
+    private final String[] imageUrls;
+    private final LayoutInflater layoutInflater;
 
     public ViewPagerAdapter(Context context, String[] imageUrls) {
         this.context = context;
@@ -36,7 +34,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View itemView = layoutInflater.inflate(R.layout.image_view_single_layout, container, false);
+        View itemView = layoutInflater.inflate(R.layout.view_inside_page_view, container, false);
         ImageView imageView = itemView.findViewById(R.id.reading_page_photoView);
 //        PhotoView imageView = new PhotoView(context);
         try {

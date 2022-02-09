@@ -8,6 +8,8 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.BookmarkRoom;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
 import java.util.List;
@@ -28,8 +30,8 @@ public interface BookmarkDAO {
     @Query("SELECT * FROM quran_bookmark ORDER BY _id ASC")
     LiveData<List<BookmarkRoom>> listOfBookmark();
 
-    @Query("SELECT * FROM quran_bookmark WHERE index_number = :id")
-    LiveData<BookmarkRoom> getBookmarkByIndex(String id);
+    @Query("SELECT _id FROM quran_bookmark WHERE index_number = :id")
+    int getBookmarkByIndex(int id);
 
    /* @Query("")
     LiveData<Integer> getSelectedSurahAyatCount(String surahNo);*/

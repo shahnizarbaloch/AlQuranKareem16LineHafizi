@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "135384832985",
+    "project_id": "al-quran-kareem-16-line-hafizi",
+    "storage_bucket": "al-quran-kareem-16-line-hafizi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135384832985:android:0ae1057f77cb1f0d0a57c8",
+        "android_client_info": {
+          "package_name": "com.vulcansolutions.alqurankareem16linehafizi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135384832985-r98fhrdsjc4skvjutbgedgsiv4f21oph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaBe-gi9lJJJ3u5Pc9uvp86MhrnUBZIR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135384832985-r98fhrdsjc4skvjutbgedgsiv4f21oph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

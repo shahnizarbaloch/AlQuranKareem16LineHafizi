@@ -8,10 +8,12 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/reading_page_photoView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/border_1"
-        android:adjustViewBounds="true"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitXY"
+        android:layout_marginStart="@dimen/_22sdp"
+        android:layout_marginEnd="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginBottom="@dimen/_25sdp"/>
 
 </RelativeLayout>

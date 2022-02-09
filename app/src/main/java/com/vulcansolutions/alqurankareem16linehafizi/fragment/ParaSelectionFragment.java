@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.vulcansolutions.alqurankareem16linehafizi.R;
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionParaAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentParahBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.ParaRepo;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
 import java.util.List;
@@ -63,7 +65,28 @@ public class ParaSelectionFragment extends Fragment implements SelectionParaAdap
     @Override
     public void onMyOwnClick(int position, View view) {
         ParaRoom obj = list.get(position);
-        navController.navigate(R.id.action_selectionFragment_to_pageViewFragment);
+        Selection sendToViewPage = new Selection();
+        sendToViewPage.setId(obj.getId());
+        sendToViewPage.setArabicTitle(obj.getArabicTitle());
+
+        int page = Integer.parseInt(obj.getPageNumber());
+        sendToViewPage.setPageNumber(String.valueOf(page+1));
+
+        sendToViewPage.setDownAvailable(obj.getDownAvailable());
+        sendToViewPage.setEnglishTitle(obj.getEnglishTitle());
+        sendToViewPage.setIndexNumber(obj.getIndexNumber());
+
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("obj",sendToViewPage);
+
+        PageViewFragment fragment = new PageViewFragment();
+        fragment.setArguments(bundle);
+
+        NavOptions.Builder navBuilder =  new NavOptions.Builder();
+        navBuilder.setEnterAnim(R.anim.enter).setExitAnim(R.anim.exit).setPopEnterAnim(R.anim.pop_enter).setPopExitAnim(R.anim.pop_exit);
+
+        /*navController.navigate(RateFragmentDirections.actionRateAndPackageFragmentToRateCountryDetailsFragment(obj));*/
+        navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
 
     }
 }

@@ -50,6 +50,7 @@
             android:orientation="vertical"
             android:layout_centerInParent="true"
             android:layout_toEndOf="@+id/rl"
+            android:layout_toStartOf="@+id/img_like"
             android:padding="@dimen/_4sdp"
             android:layout_marginStart="@dimen/_10sdp"
             >
@@ -58,11 +59,11 @@
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:gravity="start"
                 android:textColor="@color/colorText2"
-                android:textSize="@dimen/_11sdp"
+                android:textSize="@dimen/_13sdp"
                 android:textStyle="bold"
-                tools:text="قَلَ فَمَا خَطْبُكُم " />
+                tools:text="قَلَ فَمَا خَطْبُكُم "/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title_english"
@@ -70,8 +71,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:textColor="@color/colorText2"
-                android:textSize="@dimen/_10sdp"
-                android:textStyle="bold"
+                android:textSize="@dimen/_11sdp"
                 tools:text="Alif Laam Meem"
                 android:layout_marginTop="@dimen/_2sdp"/>
 
@@ -83,10 +83,10 @@
             android:layout_height="@dimen/_30sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
-            android:src="@drawable/normal_heart"
             android:layout_marginEnd="@dimen/_5sdp"
             android:padding="@dimen/_5sdp"
-            />
+            android:src="@drawable/normal_heart"
+            android:visibility="gone"/>
 
 
     </RelativeLayout>

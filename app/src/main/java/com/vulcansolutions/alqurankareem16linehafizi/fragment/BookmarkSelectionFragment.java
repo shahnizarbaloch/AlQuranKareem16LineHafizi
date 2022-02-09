@@ -8,12 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.vulcansolutions.alqurankareem16linehafizi.R;
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionBookmarkAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentBookmarkBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.BookmarkRoom;
 import java.util.List;
@@ -59,8 +61,28 @@ public class BookmarkSelectionFragment extends Fragment implements SelectionBook
 
     @Override
     public void onMyOwnClick(int position, View view) {
-        BookmarkRoom obj = list.get(position);
+        //BookmarkRoom obj = list.get(position);
         //Goto reading page..
+        Selection sendToViewPage = new Selection();
+        sendToViewPage.setPageNumber("-1");
+        /*.sendToViewPage.setId(obj.getId());
+        sendToViewPage.setArabicTitle(obj.getArabicTitle());
+        sendToViewPage.setPageNumber(obj.getPageNumber());
+        sendToViewPage.setDownAvailable(obj.getDownAvailable());
+        sendToViewPage.setEnglishTitle(obj.getEnglishTitle());
+        sendToViewPage.setIndexNumber(obj.getIndexNumber());*/
+
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("obj",sendToViewPage);
+
+        PageViewFragment fragment = new PageViewFragment();
+        fragment.setArguments(bundle);
+
+        NavOptions.Builder navBuilder =  new NavOptions.Builder();
+        navBuilder.setEnterAnim(R.anim.enter).setExitAnim(R.anim.exit).setPopEnterAnim(R.anim.pop_enter).setPopExitAnim(R.anim.pop_exit);
+
+        /*navController.navigate(RateFragmentDirections.actionRateAndPackageFragmentToRateCountryDetailsFragment(obj));*/
+        navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
 
     }
 }

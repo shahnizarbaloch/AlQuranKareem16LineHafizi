@@ -6,9 +6,11 @@ import androidx.lifecycle.LiveData;
 
 import com.vulcansolutions.alqurankareem16linehafizi.dao.BookmarkDAO;
 import com.vulcansolutions.alqurankareem16linehafizi.dao.ParaDAO;
+import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
 import com.vulcansolutions.alqurankareem16linehafizi.room_database.MyRoomDatabase;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.BookmarkRoom;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
 
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class BookmarkRepo {
         dao.delete(paraRoom);
     }
 
-    public LiveData<BookmarkRoom> getBookmarkByIndex(String indexNumber){
+    public int getBookmarkByIndex(int indexNumber){
         return dao.getBookmarkByIndex(indexNumber);
     }
 

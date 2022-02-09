@@ -5,8 +5,10 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "quran_surah")
-public class SurahRoom {
+public class SurahRoom implements Serializable {
 
     public void setId(int id) {
         this.id = id;
