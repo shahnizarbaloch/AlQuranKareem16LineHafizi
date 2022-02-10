@@ -35,14 +35,17 @@ public class PageViewFragment extends Fragment{
         binding = FragmentPageViewBinding.inflate(inflater,container,false);
 
         binding.llToolbar.toolbarTitle.setText(getResources().getString(R.string.app_name));
-        binding.llToolbar.imgBackArrow.setOnClickListener(e->{
-            saveReadingPage();
-            navController.popBackStack();
-        });
+        binding.llToolbar.imgBackArrow.setOnClickListener(e-> navController.popBackStack());
 
         initialize();
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        saveReadingPage();
     }
 
     /**
