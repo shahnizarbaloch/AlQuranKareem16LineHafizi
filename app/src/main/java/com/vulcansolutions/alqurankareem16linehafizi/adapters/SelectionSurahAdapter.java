@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
 import java.util.ArrayList;
@@ -47,7 +49,12 @@ public class SelectionSurahAdapter extends RecyclerView.Adapter<SelectionSurahAd
         holder.tv_title.setText(obj.getArabicTitle());
         holder.tv_index_number.setText(obj.getIndexNumber());
         holder.tv_title_english.setText(obj.getEnglishTitle());
-
+        if (obj.isBookmarked()){
+            Picasso.get().load(R.drawable.liked_heart).into(holder.img_like);
+        }
+        else{
+            Picasso.get().load(R.drawable.normal_heart).into(holder.img_like);
+        }
     }
 
     @Override

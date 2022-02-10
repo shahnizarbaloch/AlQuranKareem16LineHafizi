@@ -29,6 +29,9 @@ public interface SurahDAO {
     @Query("SELECT * FROM quran_surah WHERE index_number = :id")
     LiveData<SurahRoom> getSurahByIndex(String id);
 
+    @Query("SELECT * FROM quran_surah WHERE is_bookmarked = :bookmark")
+    LiveData<List<SurahRoom>> getAllLikedSurah(Boolean bookmark);
+
     /*@Query("")
     LiveData<Integer> getSelectedSurahAyatCount(String surahNo);*/
 

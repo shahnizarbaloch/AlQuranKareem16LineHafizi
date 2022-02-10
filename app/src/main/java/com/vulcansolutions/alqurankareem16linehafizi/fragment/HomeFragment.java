@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment implements HomeAdapterNew.OnMyOwnClic
             navController.navigate(R.id.action_homeFragment_to_selectionFragment);
         }
         else if(position==2){
-            navController.navigate(R.id.action_homeFragment_to_bookmarkSelectionFragment);
+            navController.navigate(R.id.action_homeFragment_to_bookmarkFragment);
         }
         else if (position==3){
             navController.navigate(R.id.action_homeFragment_to_moreFragment);

@@ -1,7 +1,6 @@
 package com.vulcansolutions.alqurankareem16linehafizi.repositories;
 
 import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 import com.vulcansolutions.alqurankareem16linehafizi.dao.ParaDAO;
 import com.vulcansolutions.alqurankareem16linehafizi.room_database.MyRoomDatabase;
@@ -15,6 +14,7 @@ import java.util.List;
 public class ParaRepo {
 
     private final LiveData<List<ParaRoom>> paraList;
+    private final LiveData<List<ParaRoom>> likedParaList;
     private static ParaDAO dao;
 
 
@@ -22,6 +22,7 @@ public class ParaRepo {
         MyRoomDatabase database = MyRoomDatabase.getInstance(application);
         dao = database.paraDAO();
         paraList = dao.listOfPara();
+        likedParaList = dao.getAllLikedPara(true);
     }
 
 
@@ -40,8 +41,16 @@ public class ParaRepo {
         dao.delete(paraRoom);
     }
 
+    public void updatePara(ParaRoom paraRoom){
+        dao.update(paraRoom);
+    }
+
     public LiveData<ParaRoom> getParaByIndex(String indexNumber){
         return dao.getParaByIndex(indexNumber);
+    }
+
+    public LiveData<List<ParaRoom>> getLikedParaList(){
+        return likedParaList;
     }
 
     /*public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){

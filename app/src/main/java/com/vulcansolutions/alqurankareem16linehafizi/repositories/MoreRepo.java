@@ -32,9 +32,9 @@ public class MoreRepo {
                 R.drawable.ic_theme_change
         ));
 
-        list.add(new MoreMenu(context.getResources().getString(R.string.notifications),
+        /*.list.add(new MoreMenu(context.getResources().getString(R.string.notifications),
                 R.drawable.ic_notification
-        ));
+        ));*/
 
         list.add(new MoreMenu(context.getResources().getString(R.string.home_menu_share),
                 R.drawable.ic_share

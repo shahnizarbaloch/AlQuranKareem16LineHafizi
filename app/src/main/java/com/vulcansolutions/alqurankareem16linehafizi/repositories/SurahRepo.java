@@ -18,6 +18,7 @@ public class SurahRepo {
 
 
     private final LiveData<List<SurahRoom>> surahList;
+    private final LiveData<List<SurahRoom>> likedSurahList;
     private static SurahDAO dao;
 
 
@@ -25,6 +26,7 @@ public class SurahRepo {
         MyRoomDatabase database = MyRoomDatabase.getInstance(application);
         dao = database.surahDAO();
         surahList = dao.listOfSurah();
+        likedSurahList = dao.getAllLikedSurah(true);
     }
 
 
@@ -42,6 +44,14 @@ public class SurahRepo {
 
     public void deleteSurah(SurahRoom surahRoom){
         dao.delete(surahRoom);
+    }
+
+    public void updateSurah(SurahRoom surahRoom){
+        dao.update(surahRoom);
+    }
+
+    public LiveData<List<SurahRoom>> getLikedSurahList(){
+        return likedSurahList;
     }
 
     public LiveData<SurahRoom> getSurahByIndex(String indexNumber){

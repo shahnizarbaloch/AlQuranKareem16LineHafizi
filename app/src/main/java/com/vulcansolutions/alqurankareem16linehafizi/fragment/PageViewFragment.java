@@ -35,7 +35,10 @@ public class PageViewFragment extends Fragment{
         binding = FragmentPageViewBinding.inflate(inflater,container,false);
 
         binding.llToolbar.toolbarTitle.setText(getResources().getString(R.string.app_name));
-        binding.llToolbar.imgBackArrow.setOnClickListener(e->navController.popBackStack());
+        binding.llToolbar.imgBackArrow.setOnClickListener(e->{
+            saveReadingPage();
+            navController.popBackStack();
+        });
 
         initialize();
 
@@ -138,6 +141,9 @@ public class PageViewFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+        /*navController.addOnDestinationChangedListener((navController, navDestination, bundle) -> saveReadingPage());*/
     }
+
+
 
 }

@@ -18,13 +18,6 @@
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
         <action
-            android:id="@+id/action_homeFragment_to_bookmarkSelectionFragment"
-            app:destination="@id/bookmarkSelectionFragment"
-            app:enterAnim="@anim/enter"
-            app:exitAnim="@anim/exit"
-            app:popEnterAnim="@anim/pop_enter"
-            app:popExitAnim="@anim/pop_exit"/>
-        <action
             android:id="@+id/action_homeFragment_to_moreFragment"
             app:destination="@id/moreFragment"
             app:enterAnim="@anim/enter"
@@ -38,6 +31,13 @@
             app:exitAnim="@anim/exit"
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
+        <action
+            android:id="@+id/action_homeFragment_to_bookmarkFragment"
+            app:destination="@id/bookmarkFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
     </fragment>
 
     <fragment
@@ -47,19 +47,6 @@
         tools:layout="@layout/fragment_selection">
         <action
             android:id="@+id/action_selectionFragment_to_pageViewFragment"
-            app:destination="@id/pageViewFragment"
-            app:enterAnim="@anim/enter"
-            app:exitAnim="@anim/exit"
-            app:popEnterAnim="@anim/pop_enter"
-            app:popExitAnim="@anim/pop_exit"/>
-    </fragment>
-    <fragment
-        android:id="@+id/bookmarkSelectionFragment"
-        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BookmarkSelectionFragment"
-        android:label="BookmarkSelectionFragment"
-        tools:layout="@layout/fragment_bookmark">
-        <action
-            android:id="@+id/action_bookmarkSelectionFragment_to_pageViewFragment"
             app:destination="@id/pageViewFragment"
             app:enterAnim="@anim/enter"
             app:exitAnim="@anim/exit"
@@ -92,6 +79,19 @@
         <argument
             android:name="obj"
             app:argType="com.vulcansolutions.alqurankareem16linehafizi.models.Selection" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BookmarkFragment"
+        android:label="BookmarkFragment"
+        tools:layout="@layout/fragment_bookmark">
+        <action
+            android:id="@+id/action_bookmarkFragment_to_pageViewFragment"
+            app:destination="@id/pageViewFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
     </fragment>
 
 </navigation>

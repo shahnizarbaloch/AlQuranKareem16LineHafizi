@@ -12,25 +12,26 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
-import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionSurahAdapter;
-import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSurahBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionParaAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSubBookmarkBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
-import com.vulcansolutions.alqurankareem16linehafizi.repositories.SurahRepo;
-import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.ParaRepo;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
 import java.util.List;
 
-public class SurahSelectionFragment extends Fragment implements SelectionSurahAdapter.OnMyOwnClickListener {
+public class BookmarkParaFragment extends Fragment implements SelectionParaAdapter.OnMyOwnClickListener {
 
-    private FragmentSurahBinding binding;
-    NavController navController;
-    SurahRepo repo;
-    SelectionSurahAdapter adapter;
-    List<SurahRoom> list;
+    private FragmentSubBookmarkBinding binding;
+    private NavController navController;
+    private SelectionParaAdapter adapter;
+    private ParaRepo repo;
+    private List<ParaRoom> list;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentSurahBinding.inflate(inflater,container,false);
+        binding = FragmentSubBookmarkBinding.inflate(inflater,container,false);
 
         initialize();
         return binding.getRoot();
@@ -40,14 +41,11 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
      * method to initialize components
      */
     private void initialize() {
-        repo = new SurahRepo(requireActivity().getApplication());
-        repo.getSurahList().observe(getViewLifecycleOwner(),list->{
-            if(list.isEmpty()){
-                repo.deleteTableData();
-                repo.insertSurah();
-            }
+        repo = new ParaRepo(requireActivity().getApplication());
+
+        repo.getLikedParaList().observe(getViewLifecycleOwner(),list->{
             this.list = list;
-            adapter = new SelectionSurahAdapter(requireContext(),list,this);
+            adapter = new SelectionParaAdapter(requireContext(),list,this);
             binding.rvSurah.setAdapter(adapter);
             binding.rvSurah.setLayoutManager(new GridLayoutManager(requireContext(),1));
         });
@@ -61,15 +59,13 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
 
     @Override
     public void onMyOwnClick(int position, View view) {
+        ParaRoom obj = list.get(position);
         int id = view.getId();
-        SurahRoom obj = list.get(position);
-        //Goto reading page.
-
         if(id==R.id.img_like){
             //Handle like menu
             boolean isBookmarked = obj.isBookmarked();
             obj.setBookmarked(!isBookmarked);
-            repo.updateSurah(obj);
+            repo.updatePara(obj);
             adapter.notifyItemChanged(position);
 
         }
@@ -96,7 +92,6 @@ public class SurahSelectionFragment extends Fragment implements SelectionSurahAd
             /*navController.navigate(RateFragmentDirections.actionRateAndPackageFragmentToRateCountryDetailsFragment(obj));*/
             navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
         }
-
 
     }
 }

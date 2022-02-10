@@ -65,28 +65,38 @@ public class ParaSelectionFragment extends Fragment implements SelectionParaAdap
     @Override
     public void onMyOwnClick(int position, View view) {
         ParaRoom obj = list.get(position);
-        Selection sendToViewPage = new Selection();
-        sendToViewPage.setId(obj.getId());
-        sendToViewPage.setArabicTitle(obj.getArabicTitle());
+        int id = view.getId();
+        if(id==R.id.img_like){
+            //Handle like menu
+            boolean isBookmarked = obj.isBookmarked();
+            obj.setBookmarked(!isBookmarked);
+            repo.updatePara(obj);
+            adapter.notifyItemChanged(position);
 
-        int page = Integer.parseInt(obj.getPageNumber());
-        sendToViewPage.setPageNumber(String.valueOf(page+1));
+        }
+        else{
+            Selection sendToViewPage = new Selection();
+            sendToViewPage.setId(obj.getId());
+            sendToViewPage.setArabicTitle(obj.getArabicTitle());
 
-        sendToViewPage.setDownAvailable(obj.getDownAvailable());
-        sendToViewPage.setEnglishTitle(obj.getEnglishTitle());
-        sendToViewPage.setIndexNumber(obj.getIndexNumber());
+            int page = Integer.parseInt(obj.getPageNumber());
+            sendToViewPage.setPageNumber(String.valueOf(page+1));
 
-        Bundle bundle=new Bundle();
-        bundle.putSerializable("obj",sendToViewPage);
+            sendToViewPage.setDownAvailable(obj.getDownAvailable());
+            sendToViewPage.setEnglishTitle(obj.getEnglishTitle());
+            sendToViewPage.setIndexNumber(obj.getIndexNumber());
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("obj",sendToViewPage);
 
-        PageViewFragment fragment = new PageViewFragment();
-        fragment.setArguments(bundle);
+            PageViewFragment fragment = new PageViewFragment();
+            fragment.setArguments(bundle);
 
-        NavOptions.Builder navBuilder =  new NavOptions.Builder();
-        navBuilder.setEnterAnim(R.anim.enter).setExitAnim(R.anim.exit).setPopEnterAnim(R.anim.pop_enter).setPopExitAnim(R.anim.pop_exit);
+            NavOptions.Builder navBuilder =  new NavOptions.Builder();
+            navBuilder.setEnterAnim(R.anim.enter).setExitAnim(R.anim.exit).setPopEnterAnim(R.anim.pop_enter).setPopExitAnim(R.anim.pop_exit);
 
-        /*navController.navigate(RateFragmentDirections.actionRateAndPackageFragmentToRateCountryDetailsFragment(obj));*/
-        navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
+            /*navController.navigate(RateFragmentDirections.actionRateAndPackageFragmentToRateCountryDetailsFragment(obj));*/
+            navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
+        }
 
     }
 }

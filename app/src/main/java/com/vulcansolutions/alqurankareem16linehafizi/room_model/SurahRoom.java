@@ -33,6 +33,9 @@ public class SurahRoom implements Serializable {
     @ColumnInfo(name = "down_available")
     private String downAvailable;
 
+    @ColumnInfo(name = "is_bookmarked")
+    private boolean isBookmarked;
+
     public SurahRoom() {
     }
 
@@ -88,5 +91,13 @@ public class SurahRoom implements Serializable {
 
     public void setDownAvailable(String downAvailable) {
         this.downAvailable = downAvailable;
+    }
+
+    public boolean isBookmarked() {
+        return isBookmarked;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        isBookmarked = bookmarked;
     }
 }

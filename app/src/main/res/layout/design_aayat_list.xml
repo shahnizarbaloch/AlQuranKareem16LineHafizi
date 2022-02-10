@@ -84,9 +84,10 @@
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:padding="@dimen/_5sdp"
             android:src="@drawable/normal_heart"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
 
     </RelativeLayout>
