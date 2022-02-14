@@ -29,7 +29,7 @@ public class ParaRoom implements Serializable {
     @ColumnInfo(name = "down_available")
     private String downAvailable;
 
-    @ColumnInfo(name = "is_bookmarked")
+    @Ignore
     private boolean isBookmarked;
 
     public ParaRoom() {
@@ -88,6 +88,7 @@ public class ParaRoom implements Serializable {
     public void setDownAvailable(String downAvailable) {
         this.downAvailable = downAvailable;
     }
+
     public void setId(int id) {
         this.id = id;
     }

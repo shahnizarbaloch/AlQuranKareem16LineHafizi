@@ -26,11 +26,11 @@ public interface ParaDAO {
     @Query("SELECT * FROM quran_para ORDER BY _id ASC")
     LiveData<List<ParaRoom>> listOfPara();
 
-    @Query("SELECT * FROM quran_para WHERE index_number = :id")
+    /*.@Query("SELECT * FROM quran_para WHERE index_number = :id")
     LiveData<ParaRoom> getParaByIndex(String id);
 
     @Query("SELECT * FROM quran_para WHERE is_bookmarked = :bookmark")
-    LiveData<List<ParaRoom>> getAllLikedPara(Boolean bookmark);
+    LiveData<List<ParaRoom>> getAllLikedPara(Boolean bookmark);*/
 
     /*.@Query("")
     LiveData<Integer> getSelectedSurahAyatCount(String surahNo);*/

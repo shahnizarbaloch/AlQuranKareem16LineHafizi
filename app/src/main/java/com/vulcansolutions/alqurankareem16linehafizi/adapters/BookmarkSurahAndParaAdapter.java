@@ -2,7 +2,6 @@ package com.vulcansolutions.alqurankareem16linehafizi.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,29 +12,25 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.squareup.picasso.Picasso;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
-import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
-import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.PageBookmark;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectionSurahAdapter extends RecyclerView.Adapter<SelectionSurahAdapter.MyViewHolder> implements Filterable {
+public class BookmarkSurahAndParaAdapter extends RecyclerView.Adapter<BookmarkSurahAndParaAdapter.MyViewHolder> implements Filterable {
 
     private final Context context;
-    private final List<SurahRoom> list;
-    private final List<SurahRoom> filterList;
+    private final List<PageBookmark> list;
+    private final List<PageBookmark> filterList;
     private final OnMyOwnClickListener onMyOwnClickListener;
-    private final BookmarkRepo bookmarkRepo;
 
 
-    public SelectionSurahAdapter(Context context, List<SurahRoom> list,
-                                 OnMyOwnClickListener onMyOwnClickListener) {
+    public BookmarkSurahAndParaAdapter(Context context, List<PageBookmark> list,
+                                       OnMyOwnClickListener onMyOwnClickListener) {
         this.context = context;
         this.list = list;
         this.onMyOwnClickListener = onMyOwnClickListener;
-        bookmarkRepo = new BookmarkRepo(context);
         filterList = new ArrayList<>(list);
     }
 
@@ -49,12 +44,10 @@ public class SelectionSurahAdapter extends RecyclerView.Adapter<SelectionSurahAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        final SurahRoom obj = list.get(position);
+        final PageBookmark obj = list.get(position);
         holder.tv_title.setText(obj.getArabicTitle());
         holder.tv_index_number.setText(obj.getIndexNumber());
         holder.tv_title_english.setText(obj.getEnglishTitle());
-
-        obj.setBookmarked(bookmarkRepo.checkIfAvailableInBookmark(obj.getEnglishTitle()));
 
         if (obj.isBookmarked()){
             Picasso.get().load(R.drawable.liked_heart).into(holder.img_like);
@@ -116,12 +109,12 @@ public class SelectionSurahAdapter extends RecyclerView.Adapter<SelectionSurahAd
     public Filter filteredList = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<SurahRoom> filteredList = new ArrayList<>();
+            List<PageBookmark> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
                 filteredList=filterList;
             } else {
                 String filterText = constraint.toString().toLowerCase().trim();
-                for (SurahRoom item : filterList) {
+                for (PageBookmark item : filterList) {
                     if (item.getArabicTitle().toLowerCase().contains(filterText)
                             ||item.getIndexNumber().toLowerCase().contains(filterText)) {
                         filteredList.add(item);

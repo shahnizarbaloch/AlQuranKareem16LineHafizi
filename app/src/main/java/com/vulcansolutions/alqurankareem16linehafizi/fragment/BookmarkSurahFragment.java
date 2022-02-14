@@ -12,20 +12,20 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
-import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionSurahAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.adapters.BookmarkSurahAndParaAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSubBookmarkBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
-import com.vulcansolutions.alqurankareem16linehafizi.repositories.SurahRepo;
-import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.PageBookmark;
 import java.util.List;
 
-public class BookmarkSurahFragment extends Fragment implements SelectionSurahAdapter.OnMyOwnClickListener {
+public class BookmarkSurahFragment extends Fragment implements BookmarkSurahAndParaAdapter.OnMyOwnClickListener {
 
     private FragmentSubBookmarkBinding binding;
     private NavController navController;
-    private SelectionSurahAdapter adapter;
-    private SurahRepo repo;
-    private List<SurahRoom> list;
+    private BookmarkSurahAndParaAdapter adapter;
+    private BookmarkRepo bookmarkRepo;
+    private List<PageBookmark> list;
 
 
     @Nullable
@@ -41,11 +41,10 @@ public class BookmarkSurahFragment extends Fragment implements SelectionSurahAda
      * method to initialize components
      */
     private void initialize() {
-        repo = new SurahRepo(requireActivity().getApplication());
-
-        repo.getLikedSurahList().observe(getViewLifecycleOwner(),list->{
+        bookmarkRepo = new BookmarkRepo(requireContext());
+        bookmarkRepo.getSurahBookmarkList().observe(getViewLifecycleOwner(), list->{
             this.list = list;
-            adapter = new SelectionSurahAdapter(requireContext(),list,this);
+            adapter = new BookmarkSurahAndParaAdapter(requireContext(),list,this);
             binding.rvSurah.setAdapter(adapter);
             binding.rvSurah.setLayoutManager(new GridLayoutManager(requireContext(),1));
         });
@@ -60,16 +59,12 @@ public class BookmarkSurahFragment extends Fragment implements SelectionSurahAda
     @Override
     public void onMyOwnClick(int position, View view) {
         int id = view.getId();
-        SurahRoom obj = list.get(position);
+        PageBookmark obj = list.get(position);
         //Goto reading page.
 
         if(id==R.id.img_like){
             //Handle like menu
-            boolean isBookmarked = obj.isBookmarked();
-            obj.setBookmarked(!isBookmarked);
-            repo.updateSurah(obj);
-            adapter.notifyItemChanged(position);
-
+            handleLikeButton(obj,position);
         }
         else{
             Selection sendToViewPage = new Selection();
@@ -95,5 +90,23 @@ public class BookmarkSurahFragment extends Fragment implements SelectionSurahAda
             navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
         }
 
+    }
+
+    /**
+     * method to handle like button which is bookmark
+     * @param obj surah obj
+     * @param position position of the adapter
+     */
+    private void handleLikeButton(PageBookmark obj, int position) {
+        boolean isBookmarked = obj.isBookmarked();
+
+        if (isBookmarked){
+            bookmarkRepo.delete(obj);
+        }
+        else{
+            bookmarkRepo.insertBookmark(obj);
+        }
+
+        adapter.notifyItemChanged(position);
     }
 }

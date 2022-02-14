@@ -34,6 +34,8 @@
     <string name="for_one_year">For one year</string>
     <string name="enable_or_disable_push_notification_according_to_your_need_we_send_islamic_related_notifications">Enable or disable push notification according to your need, we send islamic related notifications.</string>
     <string name="remove_ads_text">If you want to remove ads, then please select from below plans.</string>
+    <string name="surah">Surah</string>
+    <string name="para">Para</string>
 
 
 </resources>

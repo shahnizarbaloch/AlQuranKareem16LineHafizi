@@ -14,7 +14,6 @@ import java.util.List;
 public class ParaRepo {
 
     private final LiveData<List<ParaRoom>> paraList;
-    private final LiveData<List<ParaRoom>> likedParaList;
     private static ParaDAO dao;
 
 
@@ -22,7 +21,6 @@ public class ParaRepo {
         MyRoomDatabase database = MyRoomDatabase.getInstance(application);
         dao = database.paraDAO();
         paraList = dao.listOfPara();
-        likedParaList = dao.getAllLikedPara(true);
     }
 
 
@@ -45,13 +43,9 @@ public class ParaRepo {
         dao.update(paraRoom);
     }
 
-    public LiveData<ParaRoom> getParaByIndex(String indexNumber){
+    /*.public LiveData<ParaRoom> getParaByIndex(String indexNumber){
         return dao.getParaByIndex(indexNumber);
-    }
-
-    public LiveData<List<ParaRoom>> getLikedParaList(){
-        return likedParaList;
-    }
+    }*/
 
     /*public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
         return dao.getSelectedSurahAyatCount(surahNo);

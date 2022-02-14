@@ -2,12 +2,9 @@ package com.vulcansolutions.alqurankareem16linehafizi.repositories;
 
 import android.app.Application;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-
 import com.vulcansolutions.alqurankareem16linehafizi.dao.SurahDAO;
 import com.vulcansolutions.alqurankareem16linehafizi.room_database.MyRoomDatabase;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.SurahRoom;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,6 @@ public class SurahRepo {
 
 
     private final LiveData<List<SurahRoom>> surahList;
-    private final LiveData<List<SurahRoom>> likedSurahList;
     private static SurahDAO dao;
 
 
@@ -26,7 +22,6 @@ public class SurahRepo {
         MyRoomDatabase database = MyRoomDatabase.getInstance(application);
         dao = database.surahDAO();
         surahList = dao.listOfSurah();
-        likedSurahList = dao.getAllLikedSurah(true);
     }
 
 
@@ -42,21 +37,17 @@ public class SurahRepo {
         }
     }
 
-    public void deleteSurah(SurahRoom surahRoom){
+    /*.public void deleteSurah(SurahRoom surahRoom){
         dao.delete(surahRoom);
     }
 
     public void updateSurah(SurahRoom surahRoom){
         dao.update(surahRoom);
-    }
+    }*/
 
-    public LiveData<List<SurahRoom>> getLikedSurahList(){
-        return likedSurahList;
-    }
-
-    public LiveData<SurahRoom> getSurahByIndex(String indexNumber){
+   /*. public LiveData<SurahRoom> getSurahByIndex(String indexNumber){
         return dao.getSurahByIndex(indexNumber);
-    }
+    }*/
 
     public void deleteTableData(){
         dao.deleteCompleteTable();
@@ -188,7 +179,7 @@ public class SurahRepo {
         return surahList;
     }
 
-    /*public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
+    /*.public LiveData<Integer> getSelectedSurahAyatCount(String surahNo){
         return dao.getSelectedSurahAyatCount(surahNo);
     }*/
 

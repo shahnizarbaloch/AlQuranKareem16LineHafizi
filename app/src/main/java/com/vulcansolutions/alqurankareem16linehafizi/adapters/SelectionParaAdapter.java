@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class SelectionParaAdapter extends RecyclerView.Adapter<SelectionParaAdap
     private final List<ParaRoom> list;
     private final List<ParaRoom> filterList;
     private final OnMyOwnClickListener onMyOwnClickListener;
+    private final BookmarkRepo bookmarkRepo;
 
 
     public SelectionParaAdapter(Context context, List<ParaRoom> list,
@@ -31,6 +33,7 @@ public class SelectionParaAdapter extends RecyclerView.Adapter<SelectionParaAdap
         this.context = context;
         this.list = list;
         this.onMyOwnClickListener = onMyOwnClickListener;
+        bookmarkRepo = new BookmarkRepo(context);
         filterList = new ArrayList<>(list);
     }
 
@@ -48,6 +51,9 @@ public class SelectionParaAdapter extends RecyclerView.Adapter<SelectionParaAdap
         holder.tv_title.setText(obj.getArabicTitle());
         holder.tv_index_number.setText(obj.getIndexNumber());
         holder.tv_title_english.setText(obj.getEnglishTitle());
+
+        obj.setBookmarked(bookmarkRepo.checkIfAvailableInBookmark(obj.getEnglishTitle()));
+
         if (obj.isBookmarked()){
             Picasso.get().load(R.drawable.liked_heart).into(holder.img_like);
         }

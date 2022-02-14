@@ -12,20 +12,21 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
-import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionParaAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.adapters.BookmarkSurahAndParaAdapter;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSubBookmarkBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
-import com.vulcansolutions.alqurankareem16linehafizi.repositories.ParaRepo;
-import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.PageBookmark;
+
 import java.util.List;
 
-public class BookmarkParaFragment extends Fragment implements SelectionParaAdapter.OnMyOwnClickListener {
+public class BookmarkParaFragment extends Fragment implements BookmarkSurahAndParaAdapter.OnMyOwnClickListener {
 
     private FragmentSubBookmarkBinding binding;
     private NavController navController;
-    private SelectionParaAdapter adapter;
-    private ParaRepo repo;
-    private List<ParaRoom> list;
+    private BookmarkSurahAndParaAdapter adapter;
+    private BookmarkRepo bookmarkRepo;
+    private List<PageBookmark> list;
 
 
     @Nullable
@@ -41,11 +42,11 @@ public class BookmarkParaFragment extends Fragment implements SelectionParaAdapt
      * method to initialize components
      */
     private void initialize() {
-        repo = new ParaRepo(requireActivity().getApplication());
+        bookmarkRepo = new BookmarkRepo(requireActivity().getApplication());
 
-        repo.getLikedParaList().observe(getViewLifecycleOwner(),list->{
+        bookmarkRepo.getParaBookmarkList().observe(getViewLifecycleOwner(), list->{
             this.list = list;
-            adapter = new SelectionParaAdapter(requireContext(),list,this);
+            adapter = new BookmarkSurahAndParaAdapter(requireContext(),list,this);
             binding.rvSurah.setAdapter(adapter);
             binding.rvSurah.setLayoutManager(new GridLayoutManager(requireContext(),1));
         });
@@ -59,14 +60,11 @@ public class BookmarkParaFragment extends Fragment implements SelectionParaAdapt
 
     @Override
     public void onMyOwnClick(int position, View view) {
-        ParaRoom obj = list.get(position);
+        PageBookmark obj = list.get(position);
         int id = view.getId();
         if(id==R.id.img_like){
             //Handle like menu
-            boolean isBookmarked = obj.isBookmarked();
-            obj.setBookmarked(!isBookmarked);
-            repo.updatePara(obj);
-            adapter.notifyItemChanged(position);
+            handleLikeButton(obj,position);
 
         }
         else{
@@ -93,5 +91,23 @@ public class BookmarkParaFragment extends Fragment implements SelectionParaAdapt
             navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
         }
 
+    }
+
+    /**
+     * method to handle like button which is bookmark
+     * @param obj surah obj
+     * @param position position of the adapter
+     */
+    private void handleLikeButton(PageBookmark obj, int position) {
+        boolean isBookmarked = obj.isBookmarked();
+
+        if (isBookmarked){
+            bookmarkRepo.delete(obj);
+        }
+        else{
+            bookmarkRepo.insertBookmark(obj);
+        }
+
+        adapter.notifyItemChanged(position);
     }
 }
