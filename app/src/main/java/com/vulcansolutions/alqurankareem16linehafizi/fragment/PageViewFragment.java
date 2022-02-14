@@ -76,16 +76,16 @@ public class PageViewFragment extends Fragment{
         int selectedBorder = MySharedPreferences.getIntegerValue(requireContext(),ConstantVariables.SETTING_SELECTED_BORDER,1);
         switch (selectedBorder){
             case 1:
-                Picasso.get().load(R.drawable.border_1).into(binding.imgBorder);
+                Picasso.get().load(R.drawable.border_1).fit().into(binding.imgBorder);
                 break;
             case 2:
-                Picasso.get().load(R.drawable.border_2).into(binding.imgBorder);
+                Picasso.get().load(R.drawable.border_2).fit().into(binding.imgBorder);
                 break;
             case 3:
-                Picasso.get().load(R.drawable.border_3).into(binding.imgBorder);
+                Picasso.get().load(R.drawable.border_3).fit().into(binding.imgBorder);
                 break;
             case 4:
-                Picasso.get().load(R.drawable.border_4).into(binding.imgBorder);
+                Picasso.get().load(R.drawable.border_4).fit().into(binding.imgBorder);
                 break;
         }
     }

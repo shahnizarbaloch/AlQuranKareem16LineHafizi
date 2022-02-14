@@ -16,27 +16,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_toolbar"
-        >
-
-        <com.vulcansolutions.alqurankareem16linehafizi.adapters.CustomViewPager
-            android:id="@+id/cviewpager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
+        android:layout_below="@+id/ll_toolbar">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="0.5" />
 
+        <com.vulcansolutions.alqurankareem16linehafizi.adapters.CustomViewPager
+            android:id="@+id/cviewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
     </RelativeLayout>
-
-
-
-
-
-
 
     <com.vulcansolutions.alqurankareem16linehafizi.usage.MovableFloatingActionButton
         android:id="@+id/moveableFloatingBtn"
@@ -48,8 +41,5 @@
         android:backgroundTint="@android:color/transparent"
         tools:ignore="RelativeOverlap"
         android:visibility="gone"/>
-
-
-
 
 </RelativeLayout>

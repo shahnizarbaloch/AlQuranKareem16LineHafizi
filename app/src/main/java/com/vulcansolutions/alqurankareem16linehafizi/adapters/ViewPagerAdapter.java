@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import com.squareup.picasso.Picasso;
+import com.vulcansolutions.alqurankareem16linehafizi.PhotoViewZub.PhotoView;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
 
 public class ViewPagerAdapter extends PagerAdapter {
@@ -35,8 +36,9 @@ public class ViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View itemView = layoutInflater.inflate(R.layout.view_inside_page_view, container, false);
-        ImageView imageView = itemView.findViewById(R.id.reading_page_photoView);
-//        PhotoView imageView = new PhotoView(context);
+        PhotoView imageView = itemView.findViewById(R.id.reading_page_photoView);
+
+//        PhotoView imageView2 = new PhotoView(context);
         try {
             Picasso.get().load(imageUrls[position]).error(R.drawable.logo).into(imageView);
         }catch (Exception ignored){
