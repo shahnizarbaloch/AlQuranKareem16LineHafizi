@@ -1,7 +1,6 @@
 package com.vulcansolutions.alqurankareem16linehafizi.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,13 +118,11 @@ public class SurahFragment extends Fragment implements SelectionSurahAdapter.OnM
         boolean isBookmarked = obj.isBookmarked();
 
         if (isBookmarked){
-            Log.d("Response","Should be deleted..");
             obj.setBookmarked(false);
             bookmark.setBookmarked(false);
             bookmarkRepo.delete(bookmark);
         }
         else{
-            Log.d("Response","Should be inserted");
             obj.setBookmarked(true);
             bookmark.setBookmarked(true);
             bookmarkRepo.insertBookmark(bookmark);

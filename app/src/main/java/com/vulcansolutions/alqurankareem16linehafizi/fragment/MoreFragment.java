@@ -90,6 +90,9 @@ public class MoreFragment extends Fragment implements MoreAdapter.OnMyOwnClickLi
         else if (obj.getTitle().equalsIgnoreCase(getString(R.string.contact_us))){
             composeEmail();
         }
+        else if (obj.getTitle().equalsIgnoreCase(getString(R.string.privacy_policy))){
+            navController.navigate(R.id.action_moreFragment_to_privacyPolicyFragment);
+        }
         else if (obj.getTitle().equalsIgnoreCase(getString(R.string.home_menu_share))){
             shareApp(requireContext());
         }

@@ -70,6 +70,13 @@
             app:exitAnim="@anim/exit"
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
+        <action
+            android:id="@+id/action_moreFragment_to_privacyPolicyFragment"
+            app:destination="@id/privacyPolicyFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
     </fragment>
     <fragment
         android:id="@+id/pageViewFragment"
@@ -93,5 +100,10 @@
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
     </fragment>
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.PrivacyPolicyFragment"
+        android:label="PrivacyPolicyFragment"
+        tools:layout="@layout/fragment_privacy_policy"/>
 
 </navigation>
