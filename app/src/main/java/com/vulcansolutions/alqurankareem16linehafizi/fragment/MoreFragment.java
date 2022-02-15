@@ -104,6 +104,25 @@ public class MoreFragment extends Fragment implements MoreAdapter.OnMyOwnClickLi
         }
     }
 
+    /*
+     * method to show the dialog where user writes something about contact us.
+     */
+    /*private void showContactUsDialog() {
+        Dialog dialog = new Dialog(requireContext(), R.style.Dialog);*//*
+        Objects.requireNonNull(dialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);*//*
+        DialogContactUsWriteSomethingBinding dialogBinding = DialogContactUsWriteSomethingBinding.inflate(LayoutInflater.from(requireContext()));
+        dialog.setContentView(dialogBinding.getRoot());
+
+        dialogBinding.btnSave.setOnClickListener(e -> {
+            dialog.dismiss();
+            composeEmail(dialogBinding.etText.getText().toString());
+        });
+
+        dialogBinding.imgClose.setOnClickListener(e -> dialog.dismiss());
+
+        dialog.show();
+    }*/
+
     /**
      * method to go to play store link of the app
      */
@@ -157,7 +176,7 @@ public class MoreFragment extends Fragment implements MoreAdapter.OnMyOwnClickLi
         Intent mailIntent = new Intent(Intent.ACTION_SENDTO);
         Uri data = Uri.parse("mailto:?subject="
                 + "App Support Android (Version : "+versionName+")"
-                + "&body=" + "\n\n"+new DeviceInfo().getDeviceDetails()
+                + "&body=" + "\n\n\n"+new DeviceInfo().getDeviceDetails()
                 + "&to=" + "app-support@vulcan_solution.com");
         mailIntent.setData(data);
         startActivity(Intent.createChooser(mailIntent, "Contact Us"));

@@ -5,8 +5,21 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <include layout="@layout/toolbar_custom"
-        android:id="@+id/ll_toolbar"/>
+    <include
+        android:id="@+id/ll_toolbar"
+        layout="@layout/toolbar_custom"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_bookmark"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:src="@drawable/ic_baseline_bookmark_add_24"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:padding="@dimen/_4sdp"
+        />
+
 
     <ProgressBar
         android:layout_width="wrap_content"

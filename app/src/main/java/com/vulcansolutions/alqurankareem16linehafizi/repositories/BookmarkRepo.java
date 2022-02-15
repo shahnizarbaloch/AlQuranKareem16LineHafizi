@@ -19,6 +19,7 @@ public class BookmarkRepo {
 
     private final LiveData<List<PageBookmark>> surahBookmarkList;
     private final LiveData<List<PageBookmark>> paraBookmarkList;
+    private final LiveData<List<PageBookmark>> pageList;
     private static BookmarkDAO dao;
 
 
@@ -27,6 +28,7 @@ public class BookmarkRepo {
         dao = database.bookmarkDAO();
         surahBookmarkList = dao.listOfSurah(application.getString(R.string.surah));
         paraBookmarkList = dao.listOfSurah(application.getString(R.string.para));
+        pageList = dao.listOfSurah(application.getString(R.string.page));
     }
 
 
@@ -38,8 +40,12 @@ public class BookmarkRepo {
         return paraBookmarkList;
     }
 
+    public LiveData<List<PageBookmark>> getPageList(){
+        return pageList;
+    }
+
     public void delete(PageBookmark pageBookmark){
-        dao.delete(pageBookmark.getEnglishTitle());
+        dao.delete(pageBookmark.getTitle());
     }
 
     public boolean checkIfAvailableInBookmark(String title){

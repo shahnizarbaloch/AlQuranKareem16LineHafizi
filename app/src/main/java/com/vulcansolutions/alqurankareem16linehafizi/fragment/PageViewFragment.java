@@ -1,11 +1,13 @@
 package com.vulcansolutions.alqurankareem16linehafizi.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,12 +16,16 @@ import androidx.navigation.Navigation;
 import com.squareup.picasso.Picasso;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
 import com.vulcansolutions.alqurankareem16linehafizi.adapters.ViewPagerAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.databinding.DialogBookmarkPageBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentPageViewBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
+import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
+import com.vulcansolutions.alqurankareem16linehafizi.room_model.PageBookmark;
 import com.vulcansolutions.alqurankareem16linehafizi.usage.ConstantVariables;
 import com.vulcansolutions.alqurankareem16linehafizi.usage.MySharedPreferences;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 public class PageViewFragment extends Fragment{
 
@@ -27,7 +33,8 @@ public class PageViewFragment extends Fragment{
     private NavController navController;
     int totalPages = 549;
     private final String[] imageUrls = new String[totalPages];
-    String pageNumber ="1";
+    private String pageNumber ="1";
+    private BookmarkRepo repo;
 
     @Nullable
     @Override
@@ -52,7 +59,7 @@ public class PageViewFragment extends Fragment{
      * method to initialize components
      */
     private void initialize() {
-
+        repo = new BookmarkRepo(requireContext());
         checkAndSetValues();
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(requireContext(), loadImagesListAssets());
@@ -64,9 +71,43 @@ public class PageViewFragment extends Fragment{
         binding.moveableFloatingBtn.setX(Float.parseFloat(MySharedPreferences.getStringValue(requireContext(), ConstantVariables.VALUE_POINT_X,"10")));
         binding.moveableFloatingBtn.setY(Float.parseFloat(MySharedPreferences.getStringValue(requireContext(),ConstantVariables.VALUE_POINT_Y,"10")));
 
+        binding.imgBookmark.setOnClickListener(e->showSaveDialog());
+
         binding.cviewpager.setCurrentItem(totalPages-Integer.parseInt(pageNumber));
         saveReadingPage();
 
+    }
+
+    /**
+     * method to show save dialog
+     */
+    private void showSaveDialog() {
+        final Dialog dialog = new Dialog(requireContext(),R.style.Dialog);
+        DialogBookmarkPageBinding dialogBinding = DialogBookmarkPageBinding.inflate(LayoutInflater.from(requireContext()));
+        dialog.setContentView(dialogBinding.getRoot());
+
+        dialogBinding.btnSave.setOnClickListener(e->{
+            String title = Objects.requireNonNull(dialogBinding.etTitle.getText()).toString();
+            String description = Objects.requireNonNull(dialogBinding.etDescription.getText()).toString();
+
+            if(title.isEmpty() || description.isEmpty()){
+                Toast.makeText(requireContext(), R.string.empty_text_not_allowed, Toast.LENGTH_SHORT).show();
+            }
+            else{
+                PageBookmark obj = new PageBookmark();
+                obj.setPageNumber(pageNumber);
+                obj.setTitle(title);
+                obj.setDescription(description);
+                obj.setBookmarkType(getString(R.string.page));
+                repo.insertBookmark(obj);
+                Toast.makeText(requireContext(), R.string.successfull, Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.setCancelable(true);
+
+        dialog.show();
     }
 
     /**

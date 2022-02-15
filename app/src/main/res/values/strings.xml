@@ -36,6 +36,15 @@
     <string name="remove_ads_text">If you want to remove ads, then please select from below plans.</string>
     <string name="surah">Surah</string>
     <string name="para">Para</string>
+    <string name="write_your_query">Write your query...</string>
+    <string name="next">Next</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="empty_text_not_allowed">Empty text not allowed.</string>
+    <string name="page">bookmark_page</string>
+    <string name="successfull">Successful..</string>
+    <string name="page_text">Page</string>
 
 
 </resources>

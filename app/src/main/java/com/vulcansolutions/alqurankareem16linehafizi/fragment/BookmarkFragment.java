@@ -40,10 +40,9 @@ public class BookmarkFragment extends Fragment {
     private void initialize() {
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getChildFragmentManager(), FragmentPagerItems.with(requireContext())
-                .add(getString(R.string.menu_1_surah), BookmarkSurahFragment.class)
-                .add(getString(R.string.menu_2_para), BookmarkParaFragment.class)/*
-                .add(getString(R.string.menu_3_sajda), HomeFragment.class)
-                .add(getString(R.string.menu_4_manzil), HomeFragment.class)*/
+                .add(getString(R.string.surah), BookmarkSurahFragment.class)
+                .add(getString(R.string.para), BookmarkParaFragment.class)
+                .add(getString(R.string.page_text),BookmarkPageFragment.class)
                 .create());
 
         binding.viewpager.setAdapter(adapter);

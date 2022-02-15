@@ -4,16 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_arrow_right_color_primary.xml" value="0.336" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_bookmark_add_24.xml" value="0.3125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.3125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2515" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/ic_baseline_menu.xml" value="0.336" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/shape_button_background_primary_color.xml" value="0.3125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/drawable/shape_edit_text.xml" value="0.3125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/activity_selection.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/banner_add_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_aayat_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_home_menu.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_home_menu_full_width.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_page_bookmark.xml" value="0.5" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/design_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/dialog_bookmark_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/dialog_confirmation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/dialog_contact_us_write_something.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/dialog_push_notification.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_bookmark.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/user/AndroidStudioProjects/AlQuranKareem16LineHafizi/app/src/main/res/layout/fragment_border_selection.xml" value="0.36666666666666664" />

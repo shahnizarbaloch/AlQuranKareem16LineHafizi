@@ -1,6 +1,5 @@
 package com.vulcansolutions.alqurankareem16linehafizi.fragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,30 +12,26 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.vulcansolutions.alqurankareem16linehafizi.R;
-import com.vulcansolutions.alqurankareem16linehafizi.adapters.SelectionParaAdapter;
-import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentParahBinding;
+import com.vulcansolutions.alqurankareem16linehafizi.adapters.BookmarkPageAdapter;
+import com.vulcansolutions.alqurankareem16linehafizi.databinding.FragmentSubBookmarkBinding;
 import com.vulcansolutions.alqurankareem16linehafizi.models.Selection;
 import com.vulcansolutions.alqurankareem16linehafizi.repositories.BookmarkRepo;
-import com.vulcansolutions.alqurankareem16linehafizi.repositories.ParaRepo;
 import com.vulcansolutions.alqurankareem16linehafizi.room_model.PageBookmark;
-import com.vulcansolutions.alqurankareem16linehafizi.room_model.ParaRoom;
-
 import java.util.List;
 
-public class ParaFragment extends Fragment implements SelectionParaAdapter.OnMyOwnClickListener {
+public class BookmarkPageFragment extends Fragment implements BookmarkPageAdapter.OnMyOwnClickListener {
 
-    private FragmentParahBinding binding;
+    private FragmentSubBookmarkBinding binding;
     private NavController navController;
-    private ParaRepo repo;
-    private SelectionParaAdapter adapter;
-    private List<ParaRoom> list;
+    private BookmarkPageAdapter adapter;
     private BookmarkRepo bookmarkRepo;
+    private List<PageBookmark> list;
 
-    @SuppressLint("SetJavaScriptEnabled")
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentParahBinding.inflate(inflater,container,false);
+        binding = FragmentSubBookmarkBinding.inflate(inflater,container,false);
 
         initialize();
         return binding.getRoot();
@@ -46,15 +41,10 @@ public class ParaFragment extends Fragment implements SelectionParaAdapter.OnMyO
      * method to initialize components
      */
     private void initialize() {
-        repo = new ParaRepo(requireActivity().getApplication());
         bookmarkRepo = new BookmarkRepo(requireContext());
-        repo.getParaList().observe(getViewLifecycleOwner(),list->{
-            if(list.isEmpty()){
-                repo.deleteTableData();
-                repo.insertPara();
-            }
+        bookmarkRepo.getPageList().observe(getViewLifecycleOwner(), list->{
             this.list = list;
-            adapter = new SelectionParaAdapter(requireContext(),list,this);
+            adapter = new BookmarkPageAdapter(requireContext(),list,this);
             binding.rvSurah.setAdapter(adapter);
             binding.rvSurah.setLayoutManager(new GridLayoutManager(requireContext(),1));
         });
@@ -68,23 +58,21 @@ public class ParaFragment extends Fragment implements SelectionParaAdapter.OnMyO
 
     @Override
     public void onMyOwnClick(int position, View view) {
-        ParaRoom obj = list.get(position);
         int id = view.getId();
-        if(id==R.id.img_like){
+        PageBookmark obj = list.get(position);
+        //Goto reading page.
+
+        if(id==R.id.img_delete){
             //Handle like menu
-            handleLikeButton(obj,position);
+            bookmarkRepo.delete(obj);
         }
         else{
             Selection sendToViewPage = new Selection();
             sendToViewPage.setId(obj.getId());
-            sendToViewPage.setArabicTitle(obj.getArabicTitle());
 
             int page = Integer.parseInt(obj.getPageNumber());
             sendToViewPage.setPageNumber(String.valueOf(page+1));
 
-            sendToViewPage.setDownAvailable(obj.getDownAvailable());
-            sendToViewPage.setEnglishTitle(obj.getEnglishTitle());
-            sendToViewPage.setIndexNumber(obj.getIndexNumber());
             Bundle bundle=new Bundle();
             bundle.putSerializable("obj",sendToViewPage);
 
@@ -98,38 +86,5 @@ public class ParaFragment extends Fragment implements SelectionParaAdapter.OnMyO
             navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
         }
 
-    }
-
-    /**
-     * method to handle like button which is bookmark
-     * @param obj surah obj
-     * @param position position of the adapter
-     */
-    private void handleLikeButton(ParaRoom obj, int position) {
-
-        PageBookmark bookmark = new PageBookmark();
-        //bookmark.setId(obj.getId());
-        bookmark.setArabicTitle(obj.getArabicTitle());
-        bookmark.setDownAvailable(obj.getDownAvailable());
-        bookmark.setEnglishTitle(obj.getEnglishTitle());
-        bookmark.setPageNumber(obj.getPageNumber());
-        bookmark.setIndexNumber(obj.getIndexNumber());
-        bookmark.setTitle(obj.getEnglishTitle());
-        bookmark.setBookmarkType(getString(R.string.para));
-
-        boolean isBookmarked = obj.isBookmarked();
-
-        if (isBookmarked){
-            obj.setBookmarked(false);
-            bookmark.setBookmarked(false);
-            bookmarkRepo.delete(bookmark);
-        }
-        else{
-            obj.setBookmarked(true);
-            bookmark.setBookmarked(true);
-            bookmarkRepo.insertBookmark(bookmark);
-        }
-
-        adapter.notifyItemChanged(position);
     }
 }

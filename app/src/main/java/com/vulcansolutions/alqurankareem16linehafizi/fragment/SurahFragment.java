@@ -113,6 +113,7 @@ public class SurahFragment extends Fragment implements SelectionSurahAdapter.OnM
         bookmark.setEnglishTitle(obj.getEnglishTitle());
         bookmark.setPageNumber(obj.getPageNumber());
         bookmark.setIndexNumber(obj.getIndexNumber());
+        bookmark.setTitle(obj.getEnglishTitle());
         bookmark.setBookmarkType(getString(R.string.surah));
 
         boolean isBookmarked = obj.isBookmarked();

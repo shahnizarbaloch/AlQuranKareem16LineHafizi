@@ -18,7 +18,7 @@ public interface BookmarkDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(PageBookmark bookmark);
 
-    @Query("DELETE FROM page_bookmark where english_title=:title")
+    @Query("DELETE FROM page_bookmark where title=:title")
     void delete(String title);
 
     @Update
@@ -33,6 +33,7 @@ public interface BookmarkDAO {
 
     @Query("SELECT * FROM page_bookmark where bookmark_type=:bookmarkType ORDER BY _id ASC")
     LiveData<List<PageBookmark>> listOfSurah(String bookmarkType);
+
 
 
     /**
