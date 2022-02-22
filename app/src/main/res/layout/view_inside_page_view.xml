@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.vulcansolutions.alqurankareem16linehafizi.PhotoViewZub.PhotoView
+    <com.vs.alqurankareem16linehafizi.PhotoViewZub.PhotoView
         android:id="@+id/reading_page_photoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

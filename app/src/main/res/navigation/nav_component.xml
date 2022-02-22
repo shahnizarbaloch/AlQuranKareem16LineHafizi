@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.HomeFragment"
+        android:name="com.vs.alqurankareem16linehafizi.fragment.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/selectionFragment"
-        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.SelectionFragment"
+        android:name="com.vs.alqurankareem16linehafizi.fragment.SelectionFragment"
         android:label="SelectionFragment"
         tools:layout="@layout/fragment_selection">
         <action
@@ -55,12 +55,12 @@
     </fragment>
     <fragment
         android:id="@+id/borderSelectionFragment"
-        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BorderSelectionFragment"
+        android:name="com.vs.alqurankareem16linehafizi.fragment.BorderSelectionFragment"
         android:label="BorderSelectionFragment"
         tools:layout="@layout/fragment_border_selection"/>
     <fragment
         android:id="@+id/moreFragment"
-        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.MoreFragment"
+        android:name="com.vs.alqurankareem16linehafizi.fragment.MoreFragment"
         android:label="MoreFragment"
         tools:layout="@layout/fragment_more">
         <action
@@ -80,16 +80,16 @@
     </fragment>
     <fragment
         android:id="@+id/pageViewFragment"
-        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.PageViewFragment"
+        android:name="com.vs.alqurankareem16linehafizi.fragment.PageViewFragment"
         android:label="PageViewFragment"
         tools:layout="@layout/fragment_page_view">
         <argument
             android:name="obj"
-            app:argType="com.vulcansolutions.alqurankareem16linehafizi.models.Selection" />
+            app:argType="com.vs.alqurankareem16linehafizi.models.Selection" />
     </fragment>
     <fragment
         android:id="@+id/bookmarkFragment"
-        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.BookmarkFragment"
+        android:name="com.vs.alqurankareem16linehafizi.fragment.BookmarkFragment"
         android:label="BookmarkFragment"
         tools:layout="@layout/fragment_bookmark">
         <action
@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/privacyPolicyFragment"
-        android:name="com.vulcansolutions.alqurankareem16linehafizi.fragment.PrivacyPolicyFragment"
+        android:name="com.vs.alqurankareem16linehafizi.fragment.PrivacyPolicyFragment"
         android:label="PrivacyPolicyFragment"
         tools:layout="@layout/fragment_privacy_policy"/>
 
