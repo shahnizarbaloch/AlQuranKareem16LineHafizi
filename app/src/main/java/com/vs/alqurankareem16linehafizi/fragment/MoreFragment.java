@@ -85,13 +85,13 @@ public class MoreFragment extends Fragment implements MoreAdapter.OnMyOwnClickLi
     public void onMyOwnClick(int position, View view) {
         MoreMenu obj = list.get(position);
         if (obj.getTitle().equalsIgnoreCase(getString(R.string.change_theme))){
-            navController.navigate(R.id.action_moreFragment_to_borderSelectionFragment);
+            navController.navigate(MoreFragmentDirections.actionMoreFragmentToBorderSelectionFragment());
         }
         else if (obj.getTitle().equalsIgnoreCase(getString(R.string.contact_us))){
             composeEmail();
         }
         else if (obj.getTitle().equalsIgnoreCase(getString(R.string.privacy_policy))){
-            navController.navigate(R.id.action_moreFragment_to_privacyPolicyFragment);
+            navController.navigate(MoreFragmentDirections.actionMoreFragmentToPrivacyPolicyFragment());
         }
         else if (obj.getTitle().equalsIgnoreCase(getString(R.string.home_menu_share))){
             shareApp(requireContext());

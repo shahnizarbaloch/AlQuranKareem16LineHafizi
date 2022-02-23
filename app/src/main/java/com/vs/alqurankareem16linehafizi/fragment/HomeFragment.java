@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.vs.alqurankareem16linehafizi.R;
@@ -70,7 +69,7 @@ public class HomeFragment extends Fragment implements HomeAdapterNew.OnMyOwnClic
 
         });
 
-        binding.imgMenu.setOnClickListener(e->navController.navigate(R.id.action_homeFragment_to_moreFragment));
+        binding.imgMenu.setOnClickListener(e->navController.navigate(HomeFragmentDirections.actionHomeFragmentToMoreFragment()));
     }
 
     @Override
@@ -82,26 +81,17 @@ public class HomeFragment extends Fragment implements HomeAdapterNew.OnMyOwnClic
 
             sendToViewPage.setPageNumber("-1");
 
-            Bundle bundle=new Bundle();
-            bundle.putSerializable("obj",sendToViewPage);
-
-            PageViewFragment fragment = new PageViewFragment();
-            fragment.setArguments(bundle);
-
-            NavOptions.Builder navBuilder =  new NavOptions.Builder();
-            navBuilder.setEnterAnim(R.anim.enter).setExitAnim(R.anim.exit).setPopEnterAnim(R.anim.pop_enter).setPopExitAnim(R.anim.pop_exit);
-
-            navController.navigate(R.id.pageViewFragment,bundle, navBuilder.build());
+            navController.navigate(HomeFragmentDirections.actionHomeFragmentToPageViewFragment(sendToViewPage));
         }
 
         else if (position==1){
-            navController.navigate(R.id.action_homeFragment_to_selectionFragment);
+            navController.navigate(HomeFragmentDirections.actionHomeFragmentToSelectionFragment());
         }
         else if(position==2){
-            navController.navigate(R.id.action_homeFragment_to_bookmarkFragment);
+            navController.navigate(HomeFragmentDirections.actionHomeFragmentToBookmarkFragment());
         }
         else if (position==3){
-            navController.navigate(R.id.action_homeFragment_to_moreFragment);
+            navController.navigate(HomeFragmentDirections.actionHomeFragmentToMoreFragment());
         }
 
     }

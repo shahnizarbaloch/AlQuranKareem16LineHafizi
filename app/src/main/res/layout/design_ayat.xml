@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="@dimen/_2sdp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="@dimen/_1sdp">
+
+    <com.vs.alqurankareem16linehafizi.PhotoViewZub.PhotoView
+        android:id="@+id/reading_page_photoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_4sdp"
+        tools:src="@drawable/test_one"/>
+
+
+</androidx.cardview.widget.CardView>
