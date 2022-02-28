@@ -24,12 +24,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BASE_URL", "\"https://api.vs.com/api/\""
             buildConfigField "boolean", "SANDBOX", "false"
-            buildConfigField "String", "AD_ID", "\"\""
         }
         debug {
             buildConfigField "String", "BASE_URL", "\"https://apidev.vs.com/api/\""
             buildConfigField "boolean", "SANDBOX", "true"
-            buildConfigField "String", "AD_ID", "\"\""
         }
     }
     compileOptions {
