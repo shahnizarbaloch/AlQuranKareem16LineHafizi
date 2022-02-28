@@ -1,10 +1,12 @@
 package com.vs.alqurankareem16linehafizi.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,14 +19,19 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.vs.alqurankareem16linehafizi.R;
+import com.vs.alqurankareem16linehafizi.activity.MainActivity;
 import com.vs.alqurankareem16linehafizi.adapters.MoreAdapter;
 import com.vs.alqurankareem16linehafizi.databinding.DialogConfirmationBinding;
 import com.vs.alqurankareem16linehafizi.databinding.FragmentMoreBinding;
 import com.vs.alqurankareem16linehafizi.models.MoreMenu;
 import com.vs.alqurankareem16linehafizi.repositories.MoreRepo;
+import com.vs.alqurankareem16linehafizi.usage.ConstantVariables;
 import com.vs.alqurankareem16linehafizi.usage.DeviceInfo;
+import com.vs.alqurankareem16linehafizi.usage.MySharedPreferences;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MoreFragment extends Fragment implements MoreAdapter.OnMyOwnClickListener {
 
@@ -102,6 +109,59 @@ public class MoreFragment extends Fragment implements MoreAdapter.OnMyOwnClickLi
         else if (obj.getTitle().equalsIgnoreCase(getString(R.string.remove_ads))){
             removeAds(getString(R.string.for_one_year),getString(R.string.for_life_time));
         }
+        else if (obj.getTitle().equalsIgnoreCase(getString(R.string.change_app_language))){
+            showChangeLanguageDialog();
+        }
+    }
+
+    String selectedLanguage="en";
+    private void showChangeLanguageDialog() {
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle(getString(R.string.select_language));
+        // add a list
+        String[] animals = {"English", "Urdu", "Arabic", "Persian"};
+        builder.setItems(animals, (dialog, which) -> {
+            switch (which) {
+                case 0: // English
+                    selectedLanguage="en";
+                    break;
+                case 1: // Urdu
+                    selectedLanguage="ur";
+                    break;
+                case 2: // Arabic
+                    selectedLanguage="ar";
+                    break;
+                case 3: // Persian
+                    selectedLanguage="fa";
+                    break;
+
+            }
+            changeLanguage(selectedLanguage);
+            dialog.dismiss();
+        }
+        );
+
+    // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void changeLanguage(String selectedLanguage) {
+        Locale locale = new Locale(selectedLanguage);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        config.setLayoutDirection(Locale.ENGLISH);
+        getResources().updateConfiguration(config,
+                requireContext().getResources().getDisplayMetrics());
+
+        MySharedPreferences.setStringValue(requireContext(), ConstantVariables.APP_LANG,selectedLanguage);
+
+
+        Intent refresh = new Intent(requireContext(), MainActivity.class);
+        startActivity(refresh);
+        requireActivity().finish();
     }
 
     /*

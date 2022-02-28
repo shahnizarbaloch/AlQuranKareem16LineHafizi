@@ -32,6 +32,9 @@ public class MoreRepo {
                 R.drawable.ic_theme_change
         ));
 
+        list.add(new MoreMenu(context.getResources().getString(R.string.change_app_language),
+                R.drawable.ic_select_language));
+
         /*.list.add(new MoreMenu(context.getResources().getString(R.string.notifications),
                 R.drawable.ic_notification
         ));*/

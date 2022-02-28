@@ -32,7 +32,6 @@ public class App extends Application implements DefaultLifecycleObserver {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         createNotificationChannel();
-
     }
 
     @Override

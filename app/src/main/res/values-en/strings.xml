@@ -1,9 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Al Quran Kareem Hafizi</string>
     <string name="demo">Screen Name</string>
     <string name="menu_1">Change</string>
-
-
     <string name="home_menu_quran">Quran</string>
     <string name="home_menu_continue_reciting">Continue Reciting</string>
     <string name="home_menu_bookmark">Bookmarks</string>
@@ -12,7 +11,6 @@
     <string name="start">Start</string>
     <string name="go_to">Goto</string>
     <string name="share_it_with_everyone">Share our app</string>
-
     <string name="menu_1_surah">سُوْرَة</string>
     <string name="menu_2_juz">جُزْءْ</string>
     <string name="menu_3_sajda">سجدة</string>
@@ -47,6 +45,4 @@
     <string name="page_text">Page</string>
     <string name="change_app_language">Change App Language</string>
     <string name="select_language">Select Language</string>
-
-
 </resources>
