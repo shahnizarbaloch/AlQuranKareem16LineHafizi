@@ -38,6 +38,14 @@
             app:exitAnim="@anim/exit"
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit"/>
+        <action
+            android:id="@+id/action_homeFragment_to_pageAyatViewFragment"
+            app:destination="@id/pageAyatViewFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit"
+            app:popEnterAnim="@anim/pop_enter"
+            app:popExitAnim="@anim/pop_exit"/>
+
     </fragment>
 
     <fragment
@@ -105,5 +113,10 @@
         android:name="com.vs.alqurankareem16linehafizi.fragment.PrivacyPolicyFragment"
         android:label="PrivacyPolicyFragment"
         tools:layout="@layout/fragment_privacy_policy"/>
+    <fragment
+        android:id="@+id/pageAyatViewFragment"
+        android:name="com.vs.alqurankareem16linehafizi.fragment.PageAyatViewFragment"
+        android:label="PageAyatViewFragment"
+        tools:layout="@layout/fragment_page_view_para"/>
 
 </navigation>

@@ -51,6 +51,15 @@
         />
 
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ayat by Ayat"
+        android:layout_below="@+id/img_logo"
+        />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home_menu"
         android:layout_width="match_parent"
@@ -58,7 +67,7 @@
         tools:listitem="@layout/design_home_menu_full_width"
         android:layout_margin="@dimen/_10sdp"
         android:layout_gravity="center"
-        android:layout_below="@+id/img_logo"
+        android:layout_below="@+id/btn"
         />
 
 </RelativeLayout>

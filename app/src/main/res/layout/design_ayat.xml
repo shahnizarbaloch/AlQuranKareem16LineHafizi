@@ -6,9 +6,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="@dimen/_2sdp"
     app:cardUseCompatPadding="true"
+    android:id="@+id/card_view"
     app:cardElevation="@dimen/_1sdp">
 
-    <com.vs.alqurankareem16linehafizi.PhotoViewZub.PhotoView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/reading_page_photoView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

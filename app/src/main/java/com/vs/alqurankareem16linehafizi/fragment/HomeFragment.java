@@ -69,6 +69,8 @@ public class HomeFragment extends Fragment implements HomeAdapterNew.OnMyOwnClic
 
         });
 
+        binding.btn.setOnClickListener(e->navController.navigate(HomeFragmentDirections.actionHomeFragmentToPageAyatViewFragment()));
+
         binding.imgMenu.setOnClickListener(e->navController.navigate(HomeFragmentDirections.actionHomeFragmentToMoreFragment()));
     }
 
